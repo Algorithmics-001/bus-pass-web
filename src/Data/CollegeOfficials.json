@@ -1,0 +1,52 @@
+[
+    {
+        "email": "official2@example.com",
+        "password": "password456",
+        "confirm-password": "password456",
+        "role": "collegeOfficial",
+        "college": "Guru Nanak Dev Engineering College",
+        "location": "Ludhiana",
+        "aicteNumber": "AICTE123",
+        "collegeType": "Engineering"
+    },
+    {
+        "email": "official4@example.com",
+        "password": "password987",
+        "confirm-password": "password987",
+        "role": "collegeOfficial",
+        "college": "Ludhiana College of Engineering and Technology",
+        "location": "Ludhiana",
+        "aicteNumber": "AICTE456",
+        "collegeType": "Engineering"
+    },
+    {
+        "email": "official5@example.com",
+        "password": "password654",
+        "confirm-password": "password654",
+        "role": "collegeOfficial",
+        "college": "Guru Nanak Institute of Management and Technology",
+        "location": "Ludhiana",
+        "aicteNumber": "AICTE789",
+        "collegeType": "Management"
+    },
+    {
+        "email": "official7@example.com",
+        "password": "password111",
+        "confirm-password": "password111",
+        "role": "collegeOfficial",
+        "college": "Malwa College of Nursing",
+        "location": "Ludhiana",
+        "aicteNumber": "AICTE101",
+        "collegeType": "Nursing"
+    },
+    {
+        "email": "official9@example.com",
+        "password": "password333",
+        "confirm-password": "password333",
+        "role": "collegeOfficial",
+        "college": "Guru Nanak Institute of Management",
+        "location": "Ludhiana",
+        "aicteNumber": "AICTE202",
+        "collegeType": "Management"
+    }
+]

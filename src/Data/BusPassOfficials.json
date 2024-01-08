@@ -1,0 +1,52 @@
+[
+    {
+        "email": "official1@example.com",
+        "password": "password123",
+        "confirm-password": "password123",
+        "role": "busPassOfficial",
+        "location": "Ludhiana",
+        "busServiceName": "Bus Service 1",
+        "inchargeName": "Incharge 1",
+        "depotNumber": "Depot 1"
+    },
+    {
+        "email": "official3@example.com",
+        "password": "password789",
+        "confirm-password": "password789",
+        "role": "busPassOfficial",
+        "location": "Ludhiana",
+        "busServiceName": "Bus Service 3",
+        "inchargeName": "Incharge 3",
+        "depotNumber": "Depot 3"
+    },
+    {
+        "email": "official6@example.com",
+        "password": "password321",
+        "confirm-password": "password321",
+        "role": "busPassOfficial",
+        "location": "Ludhiana",
+        "busServiceName": "Bus Service 6",
+        "inchargeName": "Incharge 6",
+        "depotNumber": "Depot 6"
+    },
+    {
+        "email": "official8@example.com",
+        "password": "password222",
+        "confirm-password": "password222",
+        "role": "busPassOfficial",
+        "location": "Ludhiana",
+        "busServiceName": "Bus Service 8",
+        "inchargeName": "Incharge 8",
+        "depotNumber": "Depot 8"
+    },
+    {
+        "email": "official10@example.com",
+        "password": "password444",
+        "confirm-password": "password444",
+        "role": "busPassOfficial",
+        "location": "Ludhiana",
+        "busServiceName": "Bus Service 10",
+        "inchargeName": "Incharge 10",
+        "depotNumber": "Depot 10"
+    }
+]

@@ -1,0 +1,191 @@
+
+[
+    {
+        "studentName": "Alice Johnson",
+        "studentRoll": "2023001",
+        "dept": "CSE",
+        "address": "123 Main Street, City",
+        "busStop": "Ahmedgarh",
+        "verificationStatus": "valid",
+        "college": "Malwa College of Nursing",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 2,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Bob Smith",
+        "studentRoll": "2023002",
+        "dept": "ECE",
+        "address": "456 Oak Avenue, Town",
+        "busStop": "Pohir",
+        "verificationStatus": "paid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+        
+        "requestType": "renew",
+        "year": 3,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Charlie Brown",
+        "studentRoll": "2023003",
+        "dept": "EE",
+        "address": "789 Pine Lane, Village",
+        "busStop": "Malerkotla",
+        "verificationStatus": "paid",
+        "college": "Ludhiana College of Engineering and Technology",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 1,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "David Miller",
+        "studentRoll": "2023004",
+        "dept": "CE",
+        "address": "101 Cedar Street, Suburb",
+        "busStop": "Sangrur",
+        "verificationStatus": "valid",
+        "college": "Ludhiana College of Engineering and Technology",
+        "gender": "male",
+        
+        "requestType": "renew",
+        "year": 2,
+        "course": "M.Tech"
+    },
+    {
+        "studentName": "Eva Davis",
+        "studentRoll": "2023005",
+        "dept": "CSE",
+        "address": "202 Elm Road, County",
+        "busStop": "Dhuri",
+        "verificationStatus": "paid",
+        "college": "Ludhiana College of Engineering and Technology",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 3,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Alice Johnson",
+        "studentRoll": "2023001",
+        "dept": "CSE",
+        "address": "123 Main Street, City",
+        "busStop": "Ahmedgarh",
+        "verificationStatus": "paid",
+        "college": "Malwa College of Nursing",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 2,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Charlie Brown",
+        "studentRoll": "2023003",
+        "dept": "IT",
+        "address": "789 Pine Street, Village",
+        "busStop": "Kheri",
+        "verificationStatus": "paid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+        
+        "requestType": "renew",
+        "year": 3,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "David Lee",
+        "studentRoll": "2023004",
+        "dept": "ECE",
+        "address": "890 Maple Drive, Suburb",
+        "busStop": "Bassi",
+        "verificationStatus": "paid",
+        "college": "Malwa College of Nursing",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 2,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Ella Johnson",
+        "studentRoll": "2023005",
+        "dept": "CSE",
+        "address": "567 Birch Lane, Hamlet",
+        "busStop": "Mullanpur",
+        "verificationStatus": "paid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 3,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Frank White",
+        "studentRoll": "2023006",
+        "dept": "IT",
+        "address": "234 Cedar Road, Township",
+        "busStop": "Raiyaan",
+        "verificationStatus": "invalid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+        
+        "requestType": "renew",
+        "year": 2,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Grace Miller",
+        "studentRoll": "2023007",
+        "dept": "CSE",
+        "address": "678 Fir Street, County",
+        "busStop": "Dhanaula",
+        "verificationStatus": "invalid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 3,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Harry Davis",
+        "studentRoll": "2023008",
+        "dept": "ECE",
+        "address": "345 Pinecone Lane, State",
+        "busStop": "Barnala",
+        "verificationStatus": "invalid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+        
+        "requestType": "renew",
+        "year": 2,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Ivy Carter",
+        "studentRoll": "2023009",
+        "dept": "IT",
+        "address": "789 Spruce Court, Province",
+        "busStop": "Sheron",
+        "verificationStatus": "invalid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+                "requestType": "renew",
+        "year": 3,
+        "course": "B.Tech"
+    },
+    {
+        "studentName": "Jack Robinson",
+        "studentRoll": "2023010",
+        "dept": "CSE",
+        "address": "123 Aspen Street, Commonwealth",
+        "busStop": "Tapa",
+        "verificationStatus": "invalid",
+        "college": "Guru Nanak Dev Engineering College",
+        "gender": "male",
+        
+        "requestType": "renew",
+        "year": 2,
+        "course": "B.Tech"
+    }
+]
