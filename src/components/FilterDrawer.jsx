@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export const FilterDrawer = ({admin, setRequests, requests}) => {
+export const FilterDrawer = ({admin, setRequests, data}) => {
 
   const [student, setStudent] = useState({
     "name": null,
@@ -40,7 +40,7 @@ export const FilterDrawer = ({admin, setRequests, requests}) => {
   }
 
   const applyFilter = () => {
-    const filteredArray = filterObjectsBySimilarity(requests, student)
+    const filteredArray = filterObjectsBySimilarity(data, student)
     console.log(filteredArray)
     setRequests(filteredArray)
   }

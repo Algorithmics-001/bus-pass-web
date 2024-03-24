@@ -129,7 +129,7 @@ const AccountRequests = () => {
     <>
       <Navbar admin={ADMIN}/>
 
-      <FilterDrawer admin={ADMIN} requests={requests} setRequests={setRequests}/>
+      <FilterDrawer admin={ADMIN} data={test} setRequests={setRequests}/>
 
       <div className="m-5">
 
@@ -143,7 +143,7 @@ const AccountRequests = () => {
             Filters
           </label>
 
-          <Search/>
+          <Search data={test} setRequests={setRequests}/>
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
