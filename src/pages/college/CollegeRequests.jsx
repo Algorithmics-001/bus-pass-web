@@ -1,22 +1,22 @@
 
-import { CollegeNavbar } from "../../components/Navbar"
+import Navbar from "../../components/Navbar"
 import Request from "../../components/Request"
-import { CollegeDrawer } from "../../components/FilterDrawer"
-import { CollegeSelector } from "../../components/Selector"
+import FilterDrawer from "../../components/FilterDrawer"
+import Selector from "../../components/Selector"
 import Search from "../../components/Search"
 
 const AccountRequests = () => {
 
   return (
     <>
-      <CollegeNavbar />
+      <Navbar admin="college"/>
 
-      <CollegeDrawer />
+      <FilterDrawer admin="college"/>
 
       <div className="m-5">
 
         <div className="md-10 p-2">
-          <CollegeSelector/>
+          <Selector admin="college"/>
 
           <label htmlFor="college-filter-drawer" className="btn btn-outline btn-primary float-right drawer-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
