@@ -1,6 +1,9 @@
 import React ,{ useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
+import Cookie from 'js-cookie'
+
 const CollegeLogin = () => {
   
   const [credentials, setCredentials] = useState({
@@ -13,6 +16,23 @@ const CollegeLogin = () => {
     const { name, value } = event.target; 
     setCredentials({ ...credentials, [name]: value });
   };
+
+  const handleLogin = (event) => {
+    const test = {"email": credentials.UserName, "password": credentials.Password}
+    axios.post('https://amr.sytes.net/login', test, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        console.log('Response:', response.data);
+        Cookies.set('JWT', 'test')
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
 
   return (
     <>
@@ -35,7 +55,7 @@ const CollegeLogin = () => {
           <input type="password" className="grow" placeholder="Password" name="Password" onChange={handleChange}/>
         </label>
 
-        <button className="btn btn-accent flex items-center gap-2 m-2 w-80">Login</button>
+        <button className="btn btn-accent flex items-center gap-2 m-2 w-80" onClick={handleLogin}>Login</button>
       </div>
     </>
   )

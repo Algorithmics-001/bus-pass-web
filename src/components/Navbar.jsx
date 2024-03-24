@@ -14,12 +14,12 @@ const Navbar = ({admin}) => {
               {(admin == "college") ? 
               <>
                 <li><Link to="/college/requests">Requests</Link></li>
-                <li><Link to="/college/about">About</Link></li> 
+                <li><Link to="/about">About</Link></li> 
               </>
               :
               <>
                 <li><Link to="/bus-service/requests">Requests</Link></li>
-                <li><Link to="/bus-service/about">About</Link></li> 
+                <li><Link to="/about">About</Link></li> 
               </>}
             </ul>
           </div>

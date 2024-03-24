@@ -1,4 +1,5 @@
 const Search = () => {
+
   return (
     <>
       <label className="input input-bordered w-150 flex float-right mr-4">
