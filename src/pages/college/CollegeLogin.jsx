@@ -2,7 +2,7 @@ import React ,{ useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 
 const CollegeLogin = () => {
   
