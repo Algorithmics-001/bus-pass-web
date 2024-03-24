@@ -2,22 +2,37 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import CollegeLogin from "./pages/CollegeLogin"
-import BusServiceLogin from "./pages/BusServiceLogin"
-import BusServiceDashboard from "./pages/BusSerivceDashboard"
-import CollegeDashboard from "./pages/CollegeDashboard"
+import CollegeLogin from "./pages/college/CollegeLogin"
+import CollegeDashboard from "./pages/college/CollegeDashboard"
+import CollegeRequests from "./pages/college/CollegeRequests"
+import BusServiceLogin from "./pages/bus-service/BusServiceLogin"
+import BusServiceDashboard from "./pages/bus-service/BusServiceDashboard"
+import BusServiceRequests from "./pages/bus-service/BusServiceRequests"
+import About from "./pages/About"
 import NoPage from "./pages/NoPage";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route index element={<Home />} />
-        <Route path="/college-login" element={<CollegeLogin />} />
-        <Route path="/bus-service-login" element={<BusServiceLogin />} />
-        <Route path="/bus-service" element={<BusServiceDashboard />} />
-        <Route path="/college" element={<BusServiceDashboard />} />
+
+        <Route path="/college">
+          <Route path="login" element={<CollegeLogin />} />
+          <Route path="dashboard" element={<CollegeDashboard />} />
+          <Route path="requests" element={<CollegeRequests />} />
+        </Route>
+
+        <Route path="/bus-service">
+          <Route path="login" element={<BusServiceLogin />} />
+          <Route path="dashboard" element={<BusServiceDashboard />} />
+          <Route path="requests" element={<BusServiceRequests />} />
+        </Route>
+
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<NoPage />} />
+
       </Routes>
     </BrowserRouter>
   );
