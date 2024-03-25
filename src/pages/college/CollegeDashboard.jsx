@@ -1,6 +1,11 @@
+import React, { useState, useEffect } from "react";
+
+import axios from 'axios';
+import Cookies from 'js-cookie'
 
 import Navbar from "../../components/Navbar"
 import Stats from "../../components/Stats.jsx"
+
 
 const ADMIN="college"
 
@@ -13,6 +18,26 @@ const CollegeDashboard = () => {
     {number:100, text:"huehue"},
     {number:100, text:"huehue"}
   ]
+
+  const [stats, setStats] = useState(test)
+
+  useEffect(() => {
+    const authz = Cookies.get('Authorization')
+    axios.get('https://amr.sytes.net/dashboard', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        // 'Authorization': authz
+      }
+    })
+      .then(response => {
+        console.log('Response:', response.data);
+        // setStats(response.data)
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, [])
 
   return (
     <>

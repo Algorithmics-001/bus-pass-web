@@ -1,10 +1,11 @@
-import React ,{ useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import Cookies from 'js-cookie'
 
 const CollegeLogin = () => {
+  const navigate = useNavigate()
   
   const [credentials, setCredentials] = useState({
     CollegeName: "",
@@ -18,8 +19,8 @@ const CollegeLogin = () => {
   };
 
   const handleLogin = (event) => {
-    const test = {"email": credentials.UserName, "password": credentials.Password}
-    axios.post('https://amr.sytes.net/login', test, {
+    const creds = {"college": credentials.CollegeName, "username": credentials.UserName, "password": credentials.Password}
+    axios.post('https://amr.sytes.net/loginn', creds, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -27,7 +28,8 @@ const CollegeLogin = () => {
     })
       .then(response => {
         console.log('Response:', response.data);
-        Cookies.set('JWT', 'test')
+        // navigate('/college/')
+
       })
       .catch(error => {
         console.error('Error:', error);

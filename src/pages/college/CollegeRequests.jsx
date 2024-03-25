@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import axios from 'axios';
+import Cookies from 'js-cookie'
 
 import Navbar from "../../components/Navbar"
 import Request from "../../components/Request"
@@ -123,7 +126,25 @@ const AccountRequests = () => {
     }
   ]
 
-  const [requests, setRequests] = useState(test)
+  const [students, setRequests] = useState(test)
+
+  useEffect(() => {
+    const authz = Cookies.get('Authorization')
+    axios.get('https://amr.sytes.net/all-requests', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        // 'Authorization': authz
+      }
+    })
+      .then(response => {
+        console.log('Response:', response.data);
+        // setRequests(response.data)
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, [])
 
   return (
     <>
