@@ -19,14 +19,14 @@ export default function App() {
         <Route index element={<Home />} />
 
         <Route path="/college">
+          <Route index element={<CollegeDashboard />} />
           <Route path="login" element={<CollegeLogin />} />
-          <Route path="dashboard" element={<CollegeDashboard />} />
           <Route path="requests" element={<CollegeRequests />} />
         </Route>
 
         <Route path="/bus-service">
+          <Route index element={<BusServiceDashboard />} />
           <Route path="login" element={<BusServiceLogin />} />
-          <Route path="dashboard" element={<BusServiceDashboard />} />
           <Route path="requests" element={<BusServiceRequests />} />
         </Route>
 
