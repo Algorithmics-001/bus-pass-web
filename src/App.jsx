@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import CollegeLogin from "./pages/college/CollegeLogin"
 import CollegeDashboard from "./pages/college/CollegeDashboard"
 import CollegeRequests from "./pages/college/CollegeRequests"
+import CollegeBulkApprove from "./pages/college/CollegeBulkApprove"
 import BusServiceLogin from "./pages/bus-service/BusServiceLogin"
 import BusServiceDashboard from "./pages/bus-service/BusServiceDashboard"
 import BusServiceRequests from "./pages/bus-service/BusServiceRequests"
@@ -22,6 +23,7 @@ export default function App() {
           <Route index element={<CollegeDashboard />} />
           <Route path="login" element={<CollegeLogin />} />
           <Route path="requests" element={<CollegeRequests />} />
+          <Route path="bulk" element={<CollegeBulkApprove/>} />
         </Route>
 
         <Route path="/bus-service">
