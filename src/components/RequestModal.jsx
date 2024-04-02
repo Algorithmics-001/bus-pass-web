@@ -14,6 +14,8 @@ const RequestModal = ({ info, id }) => {
           {(info.phone) && <p className="py-4"><b>Phone:</b> {info.phone}</p>}
           <div className="modal-action">
             <form method="dialog">
+              <button className="btn btn-outline btn-success mr-2">Accept</button>
+              <button className="btn btn-outline btn-warning mr-2">Reject</button>
               <button className="btn">Close</button>
             </form>
           </div>
