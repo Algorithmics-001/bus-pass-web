@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import axios from 'axios';
 
 import Navbar from "../../components/Navbar"
 import Request from "../../components/Request"
@@ -18,7 +20,6 @@ const BusServiceRequests = () => {
       "rollno": 123,
       "department": "Computer Science",
       "phone": 1234567890,
-      "status": "account-request"
     },
     {
       "name": "Bob Smith",
@@ -27,7 +28,6 @@ const BusServiceRequests = () => {
       "rollno": 456,
       "department": "Electrical Engineering",
       "phone": 2345678901,
-      "status": "account-request-accepted"
     },
     {
       "name": "Charlie Brown",
@@ -36,7 +36,6 @@ const BusServiceRequests = () => {
       "rollno": 789,
       "department": "Mechanical Engineering",
       "phone": 3456789012,
-      "status": "pass-request-new"
     },
     {
       "name": "David Lee",
@@ -45,7 +44,6 @@ const BusServiceRequests = () => {
       "rollno": 1011,
       "department": "Civil Engineering",
       "phone": 4567890123,
-      "status": "pass-request-renew"
     },
     {
       "name": "Emily Taylor",
@@ -54,7 +52,6 @@ const BusServiceRequests = () => {
       "rollno": 1213,
       "department": "Chemistry",
       "phone": 5678901234,
-      "status": "pass-request-renew-rejected"
     },
     {
       "name": "Frank White",
@@ -63,7 +60,6 @@ const BusServiceRequests = () => {
       "rollno": 1415,
       "department": "Biology",
       "phone": 6789012345,
-      "status": "pass-request-new-accepted"
     },
     {
       "name": "Grace Martinez",
@@ -72,7 +68,6 @@ const BusServiceRequests = () => {
       "rollno": 1617,
       "department": "Physics",
       "phone": 7890123456,
-      "status": "account-request-rejected"
     },
     {
       "name": "Henry Davis",
@@ -81,7 +76,6 @@ const BusServiceRequests = () => {
       "rollno": 1819,
       "department": "Mathematics",
       "phone": 8901234567,
-      "status": "pass-request-new-rejected"
     },
     {
       "name": "Isabel Garcia",
@@ -90,7 +84,6 @@ const BusServiceRequests = () => {
       "rollno": 2021,
       "department": "Computer Engineering",
       "phone": 9012345678,
-      "status": "pass-request-renew-accepted"
     },
     {
       "name": "Jack Brown",
@@ -99,15 +92,15 @@ const BusServiceRequests = () => {
       "rollno": 2223,
       "department": "Information Technology",
       "phone": 1234567890,
-      "status": "account-request"
     }
   ];
 
   const [requests, setRequests] = useState(test)
+  const [render, setRender] = useState(test)
   const [requestType, setRequestType] = useState("");
 
   useEffect(() => {
-    axios.get('https://amr.sytes.net/college/requests', requestType, {
+    axios.get('https://amr.sytes.net/bus-service/requests', requestType, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -126,7 +119,7 @@ const BusServiceRequests = () => {
     <>
       <Navbar admin={ADMIN}/>
 
-      <FilterDrawer admin={ADMIN} data={test} setRequests={setRequests}/>
+      <FilterDrawer admin={ADMIN} data={requests} setRequests={setRender}/>
 
       <div className="m-5">
 
@@ -140,11 +133,11 @@ const BusServiceRequests = () => {
             Sort by similarity 
           </label>
 
-          <Search data={test} setRequests={setRequests}/>
+          <Search data={requests} setRequests={setRender}/>
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          {requests.map((data, index) => (
+          {render.map((data, index) => (
             <Request key={index} info={data} />
           ))}
         </div>

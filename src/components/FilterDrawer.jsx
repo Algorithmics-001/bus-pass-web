@@ -2,17 +2,18 @@ import React, {useState} from "react";
 
 export const FilterDrawer = ({admin, setRequests, data}) => {
 
-  const [student, setStudent] = useState({
-    "name": null,
-    "email": null,
-    "course": null,
-    "batch": null,
-    "semester": null,
-    "rollno": null,
-    "department": null,
-    "address": null,
-    "phone": null 
-  })
+  const empty={
+    "name": "",
+    "email": "",
+    "course": "",
+    "batch": "",
+    "semester": "",
+    "rollno": "",
+    "department": "",
+    "address": "",
+    "phone": "" 
+  }
+  const [student, setStudent] = useState(empty)
 
   const handleInput = (event) => {
     const { name, value } = event.target; 
@@ -46,6 +47,11 @@ export const FilterDrawer = ({admin, setRequests, data}) => {
     setRequests(filteredArray)
   }
 
+  const removeFilter = () => {
+    setRequests(data)
+    setStudent(empty)
+  }
+
   return (
     <>
       <div className="drawer drawer-end">
@@ -67,6 +73,7 @@ export const FilterDrawer = ({admin, setRequests, data}) => {
               {(admin=="college") && <input type="text" placeholder="address" className="input input-bordered input-info w-full max-w-xs m-2" name="address" onChange={handleInput}/>}
               <input type="text" placeholder="phone" className="input input-bordered input-info w-full max-w-xs m-2" name="phone" onChange={handleInput}/>
               <button className="btn btn-primary w-full max-w-xs m-2" onClick={applyFilter}>Apply</button>
+              <button className="btn btn-primary w-full max-w-xs m-2" onClick={removeFilter}>Remove</button>
             </ul>
           </ul>
         </div>

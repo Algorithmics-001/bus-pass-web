@@ -23,7 +23,6 @@ const AccountRequests = () => {
       "department": "Engineering",
       "address": "123 Main Street",
       "phone": 1234567890,
-      "status": "account-request"
     },
     {
       "name": "Alice Smith",
@@ -35,7 +34,6 @@ const AccountRequests = () => {
       "department": "Business",
       "address": "456 Elm Street",
       "phone": 9876543210,
-      "status": "pass-request-new"
     },
     {
       "name": "Bob Johnson",
@@ -47,7 +45,6 @@ const AccountRequests = () => {
       "department": "Arts",
       "address": "789 Oak Street",
       "phone": 1357924680,
-      "status": "pass-request-renew"
     },
     {
       "name": "Emily Brown",
@@ -59,7 +56,6 @@ const AccountRequests = () => {
       "department": "Science",
       "address": "101 Pine Street",
       "phone": 2468013579,
-      "status": "account-request-accepted"
     },
     {
       "name": "Michael Wilson",
@@ -71,7 +67,6 @@ const AccountRequests = () => {
       "department": "Social Sciences",
       "address": "202 Cedar Street",
       "phone": 9871234560,
-      "status": "pass-request-new-accepted"
     },
     {
       "name": "Sarah Taylor",
@@ -83,7 +78,6 @@ const AccountRequests = () => {
       "department": "Humanities",
       "address": "303 Walnut Street",
       "phone": 3692581470,
-      "status": "pass-request-renew-rejected"
     },
     {
       "name": "David Martinez",
@@ -95,7 +89,6 @@ const AccountRequests = () => {
       "department": "Science",
       "address": "404 Maple Street",
       "phone": 9517534680,
-      "status": "account-request-rejected"
     },
     {
       "name": "Jennifer Garcia",
@@ -107,7 +100,6 @@ const AccountRequests = () => {
       "department": "Arts",
       "address": "505 Birch Street",
       "phone": 1239874560,
-      "status": "pass-request-renew-accepted"
     },
     {
       "name": "Daniel Brown",
@@ -119,7 +111,6 @@ const AccountRequests = () => {
       "department": "Science",
       "address": "606 Cedar Street",
       "phone": 7896541230,
-      "status": "pass-request-new-rejected"
     },
     {
       "name": "Jessica Nguyen",
@@ -131,11 +122,11 @@ const AccountRequests = () => {
       "department": "Science",
       "address": "707 Pine Street",
       "phone": 4563217890,
-      "status": "account-request"
     }
   ];
 
   const [requests, setRequests] = useState(test)
+  const [render, setRender] = useState(test)
   const [requestType, setRequestType] = useState("");
 
   useEffect(() => {
@@ -148,6 +139,7 @@ const AccountRequests = () => {
     .then(response => {
       console.log('Response:', response.data);
       setRequests(response.data) // assuming response.data is an array of student object
+      setRender(response.data)
     })
     .catch(error => {
       console.error('Error:', error);
@@ -158,7 +150,7 @@ const AccountRequests = () => {
     <>
       <Navbar admin={ADMIN}/>
 
-      <FilterDrawer admin={ADMIN} data={test} setRequests={setRequests}/>
+      <FilterDrawer admin={ADMIN} data={requests} setRequests={setRender}/>
 
       <div className="m-5">
 
@@ -173,12 +165,12 @@ const AccountRequests = () => {
             Sort by similarity 
           </label>
 
-          <Search data={test} setRequests={setRequests}/>
+          <Search data={requests} setRequests={setRender}/>
 
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          {requests.map((data, index) => (
+          {render.map((data, index) => (
             <Request key={index} info={data} />
           ))}
         </div>
