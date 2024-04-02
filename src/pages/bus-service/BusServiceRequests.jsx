@@ -12,116 +12,96 @@ const BusServiceRequests = () => {
 
   const test = [
     {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "password": "P@ssw0rd",
-      "course": "inter",
-      "batch": 2025,
-      "semester": 3,
-      "rollno": 123456,
-      "department": "CSE",
-      "phone": 123456789
-    },
-    {
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "password": "Password123",
-      "course": "bachelors",
-      "batch": 2023,
-      "semester": 2,
-      "rollno": 234567,
-      "department": "ECE",
-      "phone": 987654321
-    },
-    {
       "name": "Alice Johnson",
       "email": "alice.johnson@example.com",
-      "password": "StrongP@ss",
-      "course": "masters",
-      "batch": 2024,
-      "semester": 1,
-      "rollno": 345678,
-      "department": "ME",
-      "phone": 456789123
+      "college": "ABC University",
+      "rollno": 123,
+      "department": "Computer Science",
+      "phone": 1234567890,
+      "status": "account-request"
     },
     {
-      "name": "Bob Brown",
-      "email": "bob.brown@example.com",
-      "password": "Secure123",
-      "course": "inter",
-      "batch": 2026,
-      "semester": 4,
-      "rollno": 456789,
-      "department": "CE",
-      "phone": 987123456
+      "name": "Bob Smith",
+      "email": "bob.smith@example.com",
+      "college": "XYZ College",
+      "rollno": 456,
+      "department": "Electrical Engineering",
+      "phone": 2345678901,
+      "status": "account-request-accepted"
     },
     {
-      "name": "Emily Wilson",
-      "email": "emily.wilson@example.com",
-      "password": "Pa$$w0rd",
-      "course": "bachelors",
-      "batch": 2022,
-      "semester": 3,
-      "rollno": 567890,
-      "department": "CSE",
-      "phone": 654321987
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com",
+      "college": "DEF Institute",
+      "rollno": 789,
+      "department": "Mechanical Engineering",
+      "phone": 3456789012,
+      "status": "pass-request-new"
     },
     {
-      "name": "Michael Garcia",
-      "email": "michael.garcia@example.com",
-      "password": "Passw0rd!",
-      "course": "masters",
-      "batch": 2028,
-      "semester": 2,
-      "rollno": 678901,
-      "department": "ECE",
-      "phone": 123789456
+      "name": "David Lee",
+      "email": "david.lee@example.com",
+      "college": "GHI University",
+      "rollno": 1011,
+      "department": "Civil Engineering",
+      "phone": 4567890123,
+      "status": "pass-request-renew"
     },
     {
-      "name": "Emma Martinez",
-      "email": "emma.martinez@example.com",
-      "password": "P@ssword",
-      "course": "inter",
-      "batch": 2027,
-      "semester": 5,
-      "rollno": 789012,
-      "department": "ME",
-      "phone": 456123789
+      "name": "Emily Taylor",
+      "email": "emily.taylor@example.com",
+      "college": "JKL College",
+      "rollno": 1213,
+      "department": "Chemistry",
+      "phone": 5678901234,
+      "status": "pass-request-renew-rejected"
     },
     {
-      "name": "William Robinson",
-      "email": "william.robinson@example.com",
-      "password": "SecureP@ss",
-      "course": "bachelors",
-      "batch": 2029,
-      "semester": 4,
-      "rollno": 890123,
-      "department": "CE",
-      "phone": 789456123
+      "name": "Frank White",
+      "email": "frank.white@example.com",
+      "college": "MNO Institute",
+      "rollno": 1415,
+      "department": "Biology",
+      "phone": 6789012345,
+      "status": "pass-request-new-accepted"
     },
     {
-      "name": "Olivia Lee",
-      "email": "olivia.lee@example.com",
-      "password": "MyP@ssword123",
-      "course": "masters",
-      "batch": 2021,
-      "semester": 6,
-      "rollno": 901234,
-      "department": "CSE",
-      "phone": 321654987
+      "name": "Grace Martinez",
+      "email": "grace.martinez@example.com",
+      "college": "PQR University",
+      "rollno": 1617,
+      "department": "Physics",
+      "phone": 7890123456,
+      "status": "account-request-rejected"
     },
     {
-      "name": "James Martinez",
-      "email": "james.martinez@example.com",
-      "password": "P@ssw0rd123",
-      "course": "inter",
-      "batch": 2030,
-      "semester": 7,
-      "rollno": 123123,
-      "department": "ECE",
-      "phone": 987654321
+      "name": "Henry Davis",
+      "email": "henry.davis@example.com",
+      "college": "STU College",
+      "rollno": 1819,
+      "department": "Mathematics",
+      "phone": 8901234567,
+      "status": "pass-request-new-rejected"
+    },
+    {
+      "name": "Isabel Garcia",
+      "email": "isabel.garcia@example.com",
+      "college": "VWX Institute",
+      "rollno": 2021,
+      "department": "Computer Engineering",
+      "phone": 9012345678,
+      "status": "pass-request-renew-accepted"
+    },
+    {
+      "name": "Jack Brown",
+      "email": "jack.brown@example.com",
+      "college": "YZA University",
+      "rollno": 2223,
+      "department": "Information Technology",
+      "phone": 1234567890,
+      "status": "account-request"
     }
-  ]
+  ];
 
   const [requests, setRequests] = useState(test)
 
@@ -140,7 +120,7 @@ const BusServiceRequests = () => {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
             </svg>
-            Filters
+            Sort by similarity 
           </label>
 
           <Search data={test} setRequests={setRequests}/>
