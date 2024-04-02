@@ -21,7 +21,7 @@ const CollegeDashboard = () => {
   const [stats, setStats] = useState(test)
 
   useEffect(() => {
-    axios.get('https://amr.sytes.net/dashboard', {
+    axios.get('https://amr.sytes.net/college/dashboard', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -29,12 +29,12 @@ const CollegeDashboard = () => {
     })
       .then(response => {
         console.log('Response:', response.data);
-        // setStats(response.data)
+        setStats(response.data) // assuming response.data is a array of objects
       })
       .catch(error => {
         console.error('Error:', error);
       });
-  }, [])
+  }, []) // here the jwt is being set automatically 
 
   return (
     <>
