@@ -135,24 +135,24 @@ const AccountRequests = () => {
     }
   ];
 
-  const [students, setRequests] = useState(test)
+  const [requests, setRequests] = useState(test)
   const [requestType, setRequestType] = useState("");
 
   useEffect(() => {
-    axios.get('https://amr.sytes.net/all-requests', {
+    axios.get('https://amr.sytes.net/college/requests', requestType, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
     })
-      .then(response => {
-        console.log('Response:', response.data);
-        setRequests(response.data) // assuming response.data is an array of student object
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }, [])
+    .then(response => {
+      console.log('Response:', response.data);
+      setRequests(response.data) // assuming response.data is an array of student object
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }, [requestType])
 
   return (
     <>
@@ -178,7 +178,7 @@ const AccountRequests = () => {
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          {students.map((data, index) => (
+          {requests.map((data, index) => (
             <Request key={index} info={data} />
           ))}
         </div>

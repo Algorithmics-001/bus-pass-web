@@ -19,14 +19,14 @@ const Selector = ({ admin, setRequestType }) => {
               <option value="account-request-rejected">Account rejected</option>
             </optgroup>
             <optgroup label="New Bus Pass Requests">
-              <option value="new-buspass">New bus pass requests</option>
-              <option value="new-buspass-accpted">New bus pass accepted</option>
-              <option value="new-buspass-rejected">New bus pass rejected</option>
+              <option value="college-bus-pass-request">New bus pass requests</option>
+              <option value="college-bus-pass-request-accepted">New bus pass accepted</option>
+              <option value="college-bus-pass-request-rejected">New bus pass rejected</option>
             </optgroup>
             <optgroup label="Renew Bus Pass Requests">
-              <option value="renew-buspass">Renew bus pass</option>
-              <option value="renew-buspass-accepted">Renew bus pass accpeted</option>
-              <option value="renew-buspass-rejected">Renew bus pass rejected</option>
+              <option value="college-bus-pass-renew-request">Renew bus pass</option>
+              <option value="college-bus-pass-renew-request-accepted">Renew bus pass accepted</option>
+              <option value="college-bus-pass-renew-request-rejected">Renew bus pass rejected</option>
             </optgroup>
           </select>
         )
@@ -35,14 +35,14 @@ const Selector = ({ admin, setRequestType }) => {
           <select className="select w-full max-w-xs" onChange={handleChange}>
             <option disabled selected className="text-md">Choose request type</option>
               <optgroup label="New Bus Pass Requests">
-                <option value="new-buspass">New bus pass requests</option>
-                <option value="new-buspass-accpted">New bus pass accepted</option>
-                <option value="new-buspass-rejected">New bus pass rejected</option>
+                <option value="bus-service-bus-pass-request">New bus pass requests</option>
+                <option value="bus-service-bus-pass-request-accepted">New bus pass accepted</option>
+                <option value="bus-service-bus-pass-request-rejected">New bus pass rejected</option>
               </optgroup>
               <optgroup label="Renew Bus Pass Requests">
-                <option value="renew-buspass">Renew bus pass</option>
-                <option value="renew-buspass-accepted">Renew bus pass accpeted</option>
-                <option value="renew-buspass-rejected">Renew bus pass rejected</option>
+                <option value="bus-service-bus-pass-renew-request">Renew bus pass</option>
+                <option value="bus-service-bus-pass-renew-request-accepted">Renew bus pass accpeted</option>
+                <option value="bus-service-bus-pass-renew-request-rejected">Renew bus pass rejected</option>
               </optgroup>
           </select>
         )

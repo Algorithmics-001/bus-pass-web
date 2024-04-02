@@ -104,6 +104,23 @@ const BusServiceRequests = () => {
   ];
 
   const [requests, setRequests] = useState(test)
+  const [requestType, setRequestType] = useState("");
+
+  useEffect(() => {
+    axios.get('https://amr.sytes.net/college/requests', requestType, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+      setRequests(response.data) // assuming response.data is an array of student object
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }, [requestType])
 
   return (
     <>
@@ -114,7 +131,7 @@ const BusServiceRequests = () => {
       <div className="m-5">
 
         <div className="md-10 p-2">
-          <Selector admin={ADMIN}/>
+          <Selector admin={ADMIN} setRequestType={setRequestType}/>
 
           <label htmlFor="college-filter-drawer" className="btn btn-outline btn-primary float-right drawer-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
