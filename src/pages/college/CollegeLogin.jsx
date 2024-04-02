@@ -20,21 +20,20 @@ const CollegeLogin = () => {
 
   const handleLogin = (event) => {
     const creds = {"college": credentials.CollegeName, "username": credentials.UserName, "password": credentials.Password}
-    axios.post('https://amr.sytes.net/loginn', creds, {
+    axios.post('https://amr.sytes.net/college/login', creds, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     })
-      .then(response => {
-        console.log('Response:', response.data);
-        // navigate('/college/')
-
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }
+    .then(response => {
+      console.log('Response:', response.data);
+      navigate('/college/')
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  } // this api call must return a JWT token if creds are correct the token must be sent as res.cookies.send this will be automatically saved (ape chakk luga) in browwer and will send the JWT in subsiquent requests automatically.
 
   return (
     <>

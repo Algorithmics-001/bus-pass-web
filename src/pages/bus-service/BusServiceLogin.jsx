@@ -14,6 +14,23 @@ const BusServiceLogin = () => {
     setCredentials({ ...credentials, [name]: value });
   };
 
+  const handleLogin = (event) => {
+    const creds = {"bus-service": credentials.BusServiceName, "username": credentials.UserName, "password": credentials.Password}
+    axios.post('https://amr.sytes.net/bus-service/login', creds, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+      navigate('/bus-service/')
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  } // this api call must return a JWT token if creds are correct the token must be sent as res.cookies.send this will be automatically saved (ape chakk luga) in browwer and will send the JWT in subsiquent requests automatically.
+
   return (
     <>
       <h1 className="text-3xl text-center mt-20 mb-20">Bus Service Login</h1>
@@ -35,7 +52,7 @@ const BusServiceLogin = () => {
           <input type="password" className="grow" placeholder="Password" name="Password" onChange={handleChange}/>
         </label>
 
-        <button className="btn btn-accent flex items-center gap-2 m-2 w-80">Login</button>
+        <button className="btn btn-accent flex items-center gap-2 m-2 w-80" onClick={handleLogin}>Login</button>
       </div>
     </>
   )
