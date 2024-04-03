@@ -1,10 +1,13 @@
 const RequestModal = ({ info, id }) => {
+
+
   return (
     <>
       <dialog id={id} className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">{info.name}</h3>
           {(info.email) && <p className="py-4"><b>Email:</b> {info.email}</p>}
+          {(info.college) && <p className="py-4"><b>College:</b> {info.college}</p>}
           {(info.course) && <p className="py-4"><b>Course:</b> {info.course}</p>}
           {(info.batch) && <p className="py-4"><b>Batch:</b> {info.batch}</p>}
           {(info.semester) && <p className="py-4"><b>Semester:</b> {info.semester}</p>}
