@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import * as XLSX from "xlsx";
 import axios from 'axios';
 
 import Navbar from "../../components/Navbar"
@@ -17,7 +16,18 @@ const CollegeBulkApprove = () => {
   });
 
   const handleSubmit = () => {
-    console.log(jsonData)
+    axios.post('https://amr.sytes.net/college/requests/bulk', jsonData, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 
   return (
