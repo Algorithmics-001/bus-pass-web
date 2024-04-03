@@ -7,9 +7,9 @@ import Navbar from "../../components/Navbar"
 import FileUploader from "../../components/FileUploader"
 import PreviewRequest from "../../components/PreviewRequest"
 
-const ADMIN="college"
+const ADMIN="bus-service"
 
-const CollegeBulkApprove = () => {
+const BusServiceBulkApprove = () => {
 
   const [jsonData, setJsonData] = useState({
     "approve-type": "",
@@ -40,4 +40,4 @@ const CollegeBulkApprove = () => {
   );
 }
 
-export default CollegeBulkApprove;
+export default BusServiceBulkApprove;

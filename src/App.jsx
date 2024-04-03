@@ -9,6 +9,7 @@ import CollegeBulkApprove from "./pages/college/CollegeBulkApprove"
 import BusServiceLogin from "./pages/bus-service/BusServiceLogin"
 import BusServiceDashboard from "./pages/bus-service/BusServiceDashboard"
 import BusServiceRequests from "./pages/bus-service/BusServiceRequests"
+import BusServiceBulkApprove from "./pages/bus-service/BusServiceBulkApprove"
 import About from "./pages/About"
 import NoPage from "./pages/NoPage";
 
@@ -30,6 +31,7 @@ export default function App() {
           <Route index element={<BusServiceDashboard />} />
           <Route path="login" element={<BusServiceLogin />} />
           <Route path="requests" element={<BusServiceRequests />} />
+          <Route path="bulk" element={<BusServiceBulkApprove/>} />
         </Route>
 
         <Route path="/about" element={<About />} />

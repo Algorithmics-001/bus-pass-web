@@ -10,10 +10,10 @@ const FileUploader = ({ admin, setJsonData, jsonData }) => {
   const handleActionChange = (event) => {
     const action = event.target.value
     
-    const updatedData = [...jsonData].map((student) => {
-      return { ...student, STATUS: `${action}`};
+    setJsonData({
+      ...jsonData,
+      "approve-type": action
     });
-    setJsonData(updatedData);
   };
 
   const handleSelection = () => {
@@ -27,7 +27,10 @@ const FileUploader = ({ admin, setJsonData, jsonData }) => {
         const worksheet = workbook.Sheets[sheetName];
         const json = XLSX.utils.sheet_to_json(worksheet);
         
-        setJsonData(json);
+        setJsonData({
+          ...jsonData,
+          "students": json
+        });
       };
       reader.readAsBinaryString(file);
     }
@@ -61,68 +64,115 @@ const FileUploader = ({ admin, setJsonData, jsonData }) => {
         )}
       </select>
 
-      <div className="form-control">
-        <label className="label cursor-pointer">
-          <span className="label-text">Accept account request</span>
-          <input 
-            type="radio" 
-            name="radio-10" 
-            className="radio checked:bg-blue-500 ml-10" 
-            value="account-request-accepted" 
-            onChange={handleActionChange} 
-          />
-        </label>
-        <label className="label cursor-pointer">
-          <span className="label-text">Reject account request</span>
-          <input 
-            type="radio" 
-            name="radio-10" 
-            className="radio checked:bg-blue-500 ml-10" 
-            value="account-request-rejected" 
-            onChange={handleActionChange} 
-          />
-        </label>
-        <label className="label cursor-pointer">
-          <span className="label-text">Accept new bus-pass request</span>
-          <input 
-            type="radio" 
-            name="radio-10" 
-            className="radio checked:bg-blue-500 ml-10" 
-            value="college-bus-pass-request-accepted" 
-            onChange={handleActionChange} 
-          />
-        </label>
-        <label className="label cursor-pointer">
-          <span className="label-text">Reject new bus-pass request</span>
-          <input 
-            type="radio" 
-            name="radio-10" 
-            className="radio checked:bg-blue-500 ml-10" 
-            value="college-bus-pass-request-rejected" 
-            onChange={handleActionChange} 
-          />
-        </label>
-        <label className="label cursor-pointer">
-          <span className="label-text">Accept bus-pass renewal request</span>
-          <input 
-            type="radio" 
-            name="radio-10" 
-            className="radio checked:bg-blue-500 ml-10" 
-            value="college-bus-pass-renew-request-accepted" 
-            onChange={handleActionChange} 
-          />
-        </label>
-        <label className="label cursor-pointer">
-          <span className="label-text">Reject new bus-pass renewal request</span>
-          <input 
-            type="radio" 
-            name="radio-10" 
-            className="radio checked:bg-blue-500 ml-10" 
-            value="college-bus-pass-renew-request-rejected" 
-            onChange={handleActionChange} 
-          />
-        </label>
-      </div>
+      {(admin == "college") ? 
+        <div className="form-control">
+          <label className="label cursor-pointer">
+            <span className="label-text">Accept account request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="account-request-accepted" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Reject account request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="account-request-rejected" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Accept new bus-pass request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="college-bus-pass-request-accepted" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Reject new bus-pass request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="college-bus-pass-request-rejected" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Accept bus-pass renewal request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="college-bus-pass-renew-request-accepted" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Reject new bus-pass renewal request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="college-bus-pass-renew-request-rejected" 
+              onChange={handleActionChange} 
+            />
+          </label>
+        </div>
+        :
+        <div className="form-control">
+          <label className="label cursor-pointer">
+            <span className="label-text">Accept new bus-pass request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="bus-service-bus-pass-request-accepted" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Reject new bus-pass request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="bus-service-bus-pass-request-rejected" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Accept bus-pass renewal request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="bus-service-bus-pass-renew-request-accepted" 
+              onChange={handleActionChange} 
+            />
+          </label>
+          <label className="label cursor-pointer">
+            <span className="label-text">Reject new bus-pass renewal request</span>
+            <input 
+              type="radio" 
+              name="radio-10" 
+              className="radio checked:bg-blue-500 ml-10" 
+              value="bus-service-bus-pass-renew-request-rejected" 
+              onChange={handleActionChange} 
+            />
+          </label>
+        </div>
+
+      }
+
     </>
   )
 };
