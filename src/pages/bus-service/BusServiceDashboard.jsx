@@ -18,6 +18,7 @@ const BusServiceDashboard = () => {
   // ]
 
   const [stats, setStats] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     axios.get('https://amr.sytes.net/bus-service/dashboard', {
@@ -40,9 +41,15 @@ const BusServiceDashboard = () => {
       <Navbar admin={ADMIN}/>
 
       <div className="flex flex-row flex-wrap justify-center w-1/2 mt-20 mx-auto">
-        {stats.map((data, index) => (
-          <Stats key={index} info={data} />
-        ))}
+        {loading ? 
+          <span className="loading loading-bars loading-lg"></span>
+          :
+          <>
+            {stats.map((data, index) => (
+              <Stats key={index} info={data} />
+            ))}
+          </>
+        }
       </div>
     </>
   )

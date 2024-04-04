@@ -19,8 +19,10 @@ const CollegeDashboard = () => {
   // ]
 
   const [stats, setStats] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     axios.get('https://amr.sytes.net/college/dashboard', {
       headers: {
         'Accept': 'application/json',
@@ -30,9 +32,11 @@ const CollegeDashboard = () => {
       .then(response => {
         console.log('Response:', response.data);
         setStats(response.data) // assuming response.data is a array of objects
+        setLoading(false)
       })
       .catch(error => {
         console.error('Error:', error);
+        setLoading(false)
       });
   }, []) // here the jwt is being set automatically 
 
@@ -41,9 +45,15 @@ const CollegeDashboard = () => {
       <Navbar admin={ADMIN}/>
 
       <div className="flex flex-row flex-wrap justify-center w-1/2 mt-20 mx-auto">
-        {stats.map((data, index) => (
-          <Stats key={index} info={data} />
-        ))}
+        {loading ? 
+          <span className="loading loading-bars loading-lg"></span>
+          :
+          <>
+            {stats.map((data, index) => (
+              <Stats key={index} info={data} />
+            ))}
+          </>
+        }
       </div>
     </>
   )

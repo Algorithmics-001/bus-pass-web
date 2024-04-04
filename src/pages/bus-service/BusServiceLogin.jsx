@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BusServiceLogin = () => {
   
+  const [loading, setLoading] = useState(false)
   const [credentials, setCredentials] = useState({
     BusServiceName: "",
     UserName: "",
@@ -25,9 +26,11 @@ const BusServiceLogin = () => {
     .then(response => {
       console.log('Response:', response.data);
       navigate('/bus-service/')
+      setLoading(false)
     })
     .catch(error => {
       console.error('Error:', error);
+      setLoading(false)
     });
   } // this api call must return a JWT token if creds are correct the token must be sent as res.cookies.send this will be automatically saved (ape chakk luga) in browwer and will send the JWT in subsiquent requests automatically.
 
@@ -52,7 +55,13 @@ const BusServiceLogin = () => {
           <input type="password" className="grow" placeholder="Password" name="Password" onChange={handleChange}/>
         </label>
 
-        <button className="btn btn-accent flex items-center gap-2 m-2 w-80" onClick={handleLogin}>Login</button>
+        <button className="btn btn-accent flex items-center gap-2 m-2 w-80" onClick={handleLogin}>
+          {loading ? 
+            <span className="loading loading-bars loading-lg"></span>
+            :
+            <p>Login</p>
+          }
+        </button>
       </div>
     </>
   )

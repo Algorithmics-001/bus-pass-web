@@ -98,8 +98,10 @@ const BusServiceRequests = () => {
   const [requests, setRequests] = useState([])
   const [render, setRender] = useState([])
   const [requestType, setRequestType] = useState("");
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     axios.get('https://amr.sytes.net/bus-service/requests', requestType, {
       headers: {
         'Accept': 'application/json',
@@ -110,9 +112,11 @@ const BusServiceRequests = () => {
       console.log('Response:', response.data);
       setRequests(response.data) // assuming response.data is an array of student object
       setRender(response.data)
+      setLoading(false)
     })
     .catch(error => {
       console.error('Error:', error);
+      setLoading(false)
     });
   }, [requestType])
 
@@ -138,9 +142,14 @@ const BusServiceRequests = () => {
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          {render.map((data, index) => (
-            <Request key={index} info={data} />
-          ))}
+          {loading ? 
+            <span className="loading loading-bars loading-lg"></span>
+            :
+            <>
+            {render.map((data, index) => (
+              <Request key={index} info={data} requestType={requestType} />
+            ))}</>
+          }
         </div>
 
       </div>
