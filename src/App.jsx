@@ -10,6 +10,8 @@ import BusServiceLogin from "./pages/bus-service/BusServiceLogin"
 import BusServiceDashboard from "./pages/bus-service/BusServiceDashboard"
 import BusServiceRequests from "./pages/bus-service/BusServiceRequests"
 import BusServiceBulkApprove from "./pages/bus-service/BusServiceBulkApprove"
+import Profile from "./pages/Profile"
+import ComplaintPage from "./pages/Complaint" 
 import About from "./pages/About"
 import NoPage from "./pages/NoPage";
 
@@ -35,6 +37,9 @@ export default function App() {
         </Route>
 
         <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/complaint" element={<ComplaintPage />} />
+
         <Route path="*" element={<NoPage />} />
 
       </Routes>

@@ -13,17 +13,17 @@ const ADMIN="college"
 const AccountRequests = () => {
 
   // const test = [
-  //   {
-  //     "name": "John Doe",
-  //     "email": "john.doe@example.com",
-  //     "course": "Computer Science",
-  //     "batch": 2022,
-  //     "semester": 3,
-  //     "rollno": 1234,
-  //     "department": "Engineering",
-  //     "address": "123 Main Street",
-  //     "phone": 1234567890,
-  //   },
+    // {
+    //   "name": "John Doe",
+    //   "email": "john.doe@example.com",
+    //   "course": "Computer Science",
+    //   "batch": 2022,
+    //   "semester": 3,
+    //   "rollno": 1234,
+    //   "department": "Engineering",
+    //   "address": "123 Main Street",
+    //   "phone": 1234567890,
+    // },
   //   {
   //     "name": "Alice Smith",
   //     "email": "alice.smith@example.com",
