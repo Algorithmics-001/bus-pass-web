@@ -73,7 +73,7 @@ const RequestModal = ({ info, id, requestType }) => {
           {(info.phone) && <p className="py-4"><b>Phone:</b> {info.phone}</p>}
           <div className="modal-action">
 
-            {(requestType.split("-")[requestType.split("-").length - 1] != "request") ?
+            {(requestType.split("-")[requestType.split("-").length - 1] === "request") ?
               <form method="dialog">
                 <button className="btn btn-outline btn-success mr-2" value="accepted" onClick={handleRequest}>Accept</button>
                 <button className="btn btn-outline btn-warning mr-2" value="rejected" onClick={handleRequest}>Reject</button>
