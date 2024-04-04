@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import axios from 'axios';
+
 function ComplaintPage() {
 
   const [complaintType, setComplaintType] = useState('');
@@ -9,8 +11,25 @@ function ComplaintPage() {
     event.preventDefault();
     console.log("Complaint Type:", complaintType);
     console.log("Complaint Description:", complaintDescription);
-    setComplaintType('');
-    setComplaintDescription('');
+    // setComplaintType('');
+    // setComplaintDescription('');
+    const complaint = {
+      "complaint-type": complaintType,
+      "complaint-description": complaintDescription
+    }
+
+    axios.post('https://amr.sytes.net/complaint', complaint, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 
   return (
