@@ -1,5 +1,61 @@
-const RequestModal = ({ info, id }) => {
+import axios from 'axios';
 
+const RequestModal = ({ info, id, requestType }) => {
+
+  const handleRequest = (event) => {
+    const decision = event.target.value  
+    const status = {
+      "id": "testid", // id field is not being fetched in api
+      "status": `${requestType}-${decision}`
+    } 
+    console.log(status)
+
+    axios.post('https://amr.sytes.net/college/requests/individual ', status, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  const handleUndo = () => {
+    const newAction = event.target.value
+    const arr = requestType.split("-")
+    if(newAction == "accepted"){
+      arr[arr.length - 1] = "rejected"
+    }
+    else if(newAction == "rejected"){
+      arr[arr.length - 1] = "rejected"
+    }
+    else if(newAction == ""){
+      arr.pop()
+    }
+    const newStatus = arr.join("-")
+    const status = {
+      "id": "testid", // id field is not being fetched in api
+      "status": {newStatus} 
+    } 
+    console.log(status)
+
+    axios.post('https://amr.sytes.net/college/requests/individual ', status, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
 
   return (
     <>
@@ -16,11 +72,24 @@ const RequestModal = ({ info, id }) => {
           {(info.address) && <p className="py-4"><b>Address:</b> {info.address}</p>}
           {(info.phone) && <p className="py-4"><b>Phone:</b> {info.phone}</p>}
           <div className="modal-action">
-            <form method="dialog">
-              <button className="btn btn-outline btn-success mr-2">Accept</button>
-              <button className="btn btn-outline btn-warning mr-2">Reject</button>
-              <button className="btn">Close</button>
-            </form>
+
+            {(requestType.split("-")[requestType.split("-").length - 1] != "request") ?
+              <form method="dialog">
+                <button className="btn btn-outline btn-success mr-2" value="accepted" onClick={handleRequest}>Accept</button>
+                <button className="btn btn-outline btn-warning mr-2" value="rejected" onClick={handleRequest}>Reject</button>
+                <button className="btn">Close</button>
+              </form>
+              :
+              <form method="dialog"> 
+                {(requestType.split("-")[requestType.split("-").length - 1] === "rejected") ?
+                  <button className="btn btn-outline btn-success mr-2" value="accepted" onClick={handleUndo}>Accept</button>
+                  :
+                  <button className="btn btn-outline btn-warning mr-2" value="rejected" onClick={handleUndo}>Reject</button>
+                }
+                <button className="btn btn-outline btn-warning mr-2" value="" onClick={handleUndo}>Restore</button>
+                <button className="btn">Close</button>
+              </form>
+            }
           </div>
         </div>
       </dialog>

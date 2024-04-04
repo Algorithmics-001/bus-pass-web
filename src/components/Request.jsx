@@ -1,6 +1,6 @@
 import RequestModal from "./RequestModal.jsx"
 
-const Request = ({info}) => {
+const Request = ({info, requestType}) => {
 
   const modalId = `infoModal_${info.email}`;
 
@@ -20,7 +20,7 @@ const Request = ({info}) => {
         </button>
       </div> 
 
-      <RequestModal key={info.email} id={modalId} info={info}/>
+      <RequestModal key={info.email} id={modalId} info={info} requestType={requestType}/>
     </>
   )
 };

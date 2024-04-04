@@ -171,7 +171,7 @@ const AccountRequests = () => {
 
         <div className="mt-10 h-screen overflow-scroll">
           {render.map((data, index) => (
-            <Request key={index} info={data} />
+            <Request key={index} info={data} requestType={requestType} />
           ))}
         </div>
 

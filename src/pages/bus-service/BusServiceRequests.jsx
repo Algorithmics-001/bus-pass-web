@@ -134,7 +134,7 @@ const BusServiceRequests = () => {
             Sort by similarity 
           </label>
 
-          <Search data={requests} setRequests={setRender}/>
+          <Search data={requests} setRequests={setRender} requestType={requestType}/>
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
