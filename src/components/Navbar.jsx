@@ -19,6 +19,7 @@ const Navbar = ({admin}) => {
               </>
               :
               <>
+                <li><Link to="/bus-service/bulk">Bulk</Link></li>
                 <li><Link to="/bus-service/requests">Requests</Link></li>
                 <li><Link to="/about">About</Link></li> 
               </>}
@@ -28,11 +29,11 @@ const Navbar = ({admin}) => {
         <div className="navbar-center">
           {(admin == "college") ? 
           <>
-            <Link to="/college/dashboard" className="btn btn-ghost text-xl">DigiPass</Link>
+            <Link to="/college" className="btn btn-ghost text-xl">DigiPass</Link>
           </>
           :
           <>
-            <Link to="/bus-service/dashboard" className="btn btn-ghost text-xl">DigiPass</Link>
+            <Link to="/bus-service" className="btn btn-ghost text-xl">DigiPass</Link>
           </>}
         </div>
         <div className="navbar-end">
