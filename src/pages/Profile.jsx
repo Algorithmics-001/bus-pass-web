@@ -36,7 +36,13 @@ const Profile = () => {
 
   return (
     <>
-      {(profileData.email) && <p className="py-4"><b>Email:</b> {profileData.email}</p>}
+    <center>
+    <div className="card w-96 bg-base-100 shadow-xl">
+  <div className="card-body">
+    <h2 className="card-title text-3xl">Profile Details</h2>
+    <hr />
+    <div className=" flex flex-col card-actions justify-end">
+    {(profileData.email) && <p className="py-4"><b>Email:</b> {profileData.email}</p>}
       {(profileData.college) && <p className="py-4"><b>College:</b> {profileData.college}</p>}
       {(profileData.course) && <p className="py-4"><b>Course:</b> {profileData.course}</p>}
       {(profileData.batch) && <p className="py-4"><b>Batch:</b> {profileData.batch}</p>}
@@ -45,6 +51,10 @@ const Profile = () => {
       {(profileData.department) && <p className="py-4"><b>Department:</b> {profileData.department}</p>}
       {(profileData.address) && <p className="py-4"><b>Address:</b> {profileData.address}</p>}
       {(profileData.phone) && <p className="py-4"><b>Phone:</b> {profileData.phone}</p>}
+    </div>
+  </div>
+</div>
+</center>
     </>
   )
 }
