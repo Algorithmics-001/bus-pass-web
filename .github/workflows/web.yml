@@ -1,0 +1,37 @@
+name: Deploy Busspass mobile api
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: amr
+    steps:
+      - name: stop the server if running
+        run: |
+          sudo systemctl stop bus-pass-web
+
+      - name: Update the repo
+        working-directory: /home/github/bus-pass-web/
+        run: |
+         git pull
+
+      - name: Install packages for mobile app api
+        working-directory: /home/github/bus-pass-web/
+        run: npm i
+
+      - name: Start the server
+        run: |
+          sudo systemctl restart bus-pass-web
+    
+      - name: send telegram message on push
+        working-directory: /home/github/
+        run: |
+          export MESSAGE=" ${{ github.actor }} created commit:
+          Commit message: ${{ github.event.commits[0].message }}
+          Repository: ${{ github.repository }}
+          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}"
+          ./notify.sh "$MESSAGE"
+
