@@ -23,6 +23,8 @@ const Navbar = ({admin}) => {
                 <li><Link to="/bus-service/requests">Requests</Link></li>
                 <li><Link to="/about">About</Link></li> 
               </>}
+              <li><Link to="/complaint">Complaint</Link></li> 
+              <li><Link to="/profile">Profile</Link></li> 
             </ul>
           </div>
         </div>
