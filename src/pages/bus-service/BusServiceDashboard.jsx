@@ -23,9 +23,9 @@ const BusServiceDashboard = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if(Cookies.get('token')===undefined){
-      navigate('/notfound')
-    }
+    // if(Cookies.get('token')===undefined){
+    //   navigate('/notfound')
+    // }
     // axios.get('https://amr.sytes.net/bus-service/dashboard', {
     //   headers: {
     //     'Accept': 'application/json',

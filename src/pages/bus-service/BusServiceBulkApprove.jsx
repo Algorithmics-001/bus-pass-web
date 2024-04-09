@@ -21,7 +21,7 @@ const BusServiceBulkApprove = () => {
 
   const handleSubmit = () => {
     setLoading(true)
-    axios.post('https://amr.sytes.net/bus-service/requests/bulk', jsonData, {
+    axios.post('https://amr.sytes.net/api/bus-service/requests/bulk', jsonData, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -38,9 +38,9 @@ const BusServiceBulkApprove = () => {
   }
 
   useEffect(() => {
-    if(Cookies.get('token')===undefined){
-      navigate('/notfound')
-    }
+    // if(Cookies.get('token')===undefined){
+    //   navigate('/notfound')
+    // }
   }, [])
 
   return (

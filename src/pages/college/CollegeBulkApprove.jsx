@@ -21,7 +21,7 @@ const CollegeBulkApprove = () => {
 
   const handleSubmit = () => {
     setLoading(true)
-    axios.post('https://amr.sytes.net/college/requests/bulk', jsonData, {
+    axios.post('https://amr.sytes.net/api/college/requests/bulk', jsonData, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -38,9 +38,9 @@ const CollegeBulkApprove = () => {
   }
 
   useEffect(() => {
-    if(Cookies.get('token')===undefined){
-      navigate('/notfound')
-    }
+    // if(Cookies.get('token')===undefined){
+    //   navigate('/notfound')
+    // }
   }, [])
 
   return (

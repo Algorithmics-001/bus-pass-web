@@ -136,13 +136,13 @@ const AccountRequests = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if(Cookies.get('token')===undefined){
-      navigate('/notfound')
-    }
+    // if(Cookies.get('token')===undefined){
+    //   navigate('/notfound')
+    // }
 
     setLoading(true)
     console.log(process_request(requestType))
-    axios.get('https://amr.sytes.net/college/requests', process_request(requestType), {
+    axios.get('https://amr.sytes.net/api/college/requests', process_request(requestType), {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

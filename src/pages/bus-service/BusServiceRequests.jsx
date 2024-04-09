@@ -106,12 +106,12 @@ const BusServiceRequests = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if(Cookies.get('token')===undefined){
-      navigate('/notfound')
-    }
+    // if(Cookies.get('token')===undefined){
+    //   navigate('/notfound')
+    // }
 
     setLoading(true)
-    axios.get('https://amr.sytes.net/bus-service/requests', process_request(requestType), {
+    axios.get('https://amr.sytes.net/api/bus-service/requests', process_request(requestType), {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

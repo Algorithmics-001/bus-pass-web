@@ -18,7 +18,7 @@ const BusServiceLogin = () => {
   const handleLogin = (event) => {
     // const creds = {"bus-service": credentials.BusServiceName, "username": credentials.UserName, "password": credentials.Password}
     const creds = {"username": credentials.UserName, "password": credentials.Password}
-    axios.post('https://amr.sytes.net/bus-service/login', creds, {
+    axios.post('https://amr.sytes.net/api/bus-service/login', creds, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

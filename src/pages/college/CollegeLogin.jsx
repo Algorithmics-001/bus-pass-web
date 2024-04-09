@@ -23,7 +23,7 @@ const CollegeLogin = () => {
     setLoading(true)
     // const creds = {"college": credentials.CollegeName, "username": credentials.UserName, "password": credentials.Password}
     const creds = {"username": credentials.UserName, "password": credentials.Password}
-    axios.post('https://amr.sytes.net/college/login', creds, {
+    axios.post('https://amr.sytes.net/api/college/login', creds, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
