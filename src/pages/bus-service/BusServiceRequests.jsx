@@ -28,6 +28,7 @@ const BusServiceRequests = () => {
     // }
 
     setLoading(true)
+    console.log(process_request(requestType))
     axios.post('https://amr.sytes.net/api/bus-service/requests', process_request(requestType), {
       headers: {
         'Accept': 'application/json',

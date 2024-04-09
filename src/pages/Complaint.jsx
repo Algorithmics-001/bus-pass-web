@@ -11,11 +11,11 @@ function ComplaintPage() {
     console.log("Complaint Description:", complaintDescription);
 
     const complaint = {
-      "complaint-type": complaintType,
-      "complaint-description": complaintDescription
+      "complaint_type": complaintType,
+      "complaint_description": complaintDescription
     }
 
-    axios.post('https://amr.sytes.net/complaint', complaint, {
+    axios.post('https://amr.sytes.net/api/bus-service/complaint', complaint, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
