@@ -9,31 +9,30 @@ const ADMIN="bus-service"
 
 const BusServiceDashboard = () => {
 
-  // const test = [
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"}
-  // ]
+  const test = [
+    {number:24, text:"new bus pass accpeted"},
+    {number:2, text:"new bus pass rejected"},
+    {number:10, text:"renew requests accepted"},
+    {number:2, text:"renew reqeusts rejected"},
+  ]
 
-  const [stats, setStats] = useState([])
+  const [stats, setStats] = useState(test)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    axios.get('https://amr.sytes.net/bus-service/dashboard', {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {
-        console.log('Response:', response.data);
-        setStats(response.data) // assuming response.data is a array of objects
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    // axios.get('https://amr.sytes.net/bus-service/dashboard', {
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   }
+    // })
+    //   .then(response => {
+    //     console.log('Response:', response.data);
+    //     setStats(response.data) // assuming response.data is a array of objects
+    //   })
+    //   .catch(error => {
+    //     console.error('Error:', error);
+    //   });
   }, []) // here the jwt is being set automatically 
 
   return (

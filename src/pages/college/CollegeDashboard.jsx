@@ -10,34 +10,36 @@ const ADMIN="college"
 
 const CollegeDashboard = () => {
 
-  // const test = [
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"},
-  //   {number:100, text:"huehue"}
-  // ]
+  const test = [
+    {number:34, text:"account requests"},
+    {number:14, text:"account reqeust accepted"},
+    {number:1, text:"account reqeust rejected"},
+    {number:44, text:"new bus pass accpeted"},
+    {number:4, text:"new bus pass rejected"},
+    {number:10, text:"renew requests accepted"},
+    {number:2, text:"renew reqeusts rejected"},
+  ]
 
-  const [stats, setStats] = useState([])
+  const [stats, setStats] = useState(test)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
-    axios.get('https://amr.sytes.net/college/dashboard', {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {
-        console.log('Response:', response.data);
-        setStats(response.data) // assuming response.data is a array of objects
-        setLoading(false)
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setLoading(false)
-      });
+    // setLoading(true)
+    // axios.get('https://amr.sytes.net/college/dashboard', {
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   }
+    // })
+    //   .then(response => {
+    //     console.log('Response:', response.data);
+    //     setStats(response.data) // assuming response.data is a array of objects
+    //     setLoading(false)
+    //   })
+    //   .catch(error => {
+    //     console.error('Error:', error);
+    //     setLoading(false)
+    //   });
   }, []) // here the jwt is being set automatically 
 
   return (
