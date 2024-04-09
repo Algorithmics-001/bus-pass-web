@@ -5,9 +5,9 @@ const RequestModal = ({ info, id, requestType }) => {
   const handleRequest = (event) => {
     const decision = event.target.value  
     const status = {
-      "id": "testid", // id field is not being fetched in api
-      "status": `${requestType}-${decision}`
-    } 
+      "acc_id": info.acc_id,
+      "account": decision
+    }
     console.log(status)
 
     axios.post('https://amr.sytes.net/college/requests/individual ', status, {
@@ -26,35 +26,45 @@ const RequestModal = ({ info, id, requestType }) => {
 
   const handleUndo = () => {
     const newAction = event.target.value
-    const arr = requestType.split("-")
-    if(newAction == "accepted"){
-      arr[arr.length - 1] = "rejected"
-    }
-    else if(newAction == "rejected"){
-      arr[arr.length - 1] = "rejected"
-    }
-    else if(newAction == ""){
-      arr.pop()
-    }
-    const newStatus = arr.join("-")
-    const status = {
-      "id": "testid", // id field is not being fetched in api
-      "status": {newStatus} 
-    } 
-    console.log(status)
-
-    axios.post('https://amr.sytes.net/college/requests/individual ', status, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+    if(admin == "college"){
+      var status = {
+        "acc_id": info.acc_id,
+        "form": newAction
       }
-    })
-    .then(response => {
-      console.log('Response:', response.data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+      console.log(status)
+      axios.post('https://amr.sytes.net/api/college/requests/individual ', status, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        console.log('Response:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+    else{
+      var status = {
+        "acc_id": info.acc_id,
+        "form": newAction
+      }
+      console.log(status)
+      axios.post('https://amr.sytes.net/api/bus-service/requests/individual ', status, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        console.log('Response:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+
   }
 
   return (
@@ -75,7 +85,7 @@ const RequestModal = ({ info, id, requestType }) => {
 
             {(requestType.split("-")[requestType.split("-").length - 1] === "request") ?
               <form method="dialog">
-                <button className="btn btn-outline btn-success mr-2" value="accepted" onClick={handleRequest}>Accept</button>
+                <button className="btn btn-outline btn-success mr-2" value="student" onClick={handleRequest}>Accept</button>
                 <button className="btn btn-outline btn-warning mr-2" value="rejected" onClick={handleRequest}>Reject</button>
                 <button className="btn">Close</button>
               </form>
@@ -86,7 +96,7 @@ const RequestModal = ({ info, id, requestType }) => {
                   :
                   <button className="btn btn-outline btn-warning mr-2" value="rejected" onClick={handleUndo}>Reject</button>
                 }
-                <button className="btn btn-outline btn-warning mr-2" value="" onClick={handleUndo}>Restore</button>
+                <button className="btn btn-outline btn-warning mr-2" value="applied" onClick={handleUndo}>Restore</button>
                 <button className="btn">Close</button>
               </form>
             }
