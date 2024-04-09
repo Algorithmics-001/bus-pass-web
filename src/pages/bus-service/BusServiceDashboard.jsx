@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 import Navbar from "../../components/Navbar"
 import Stats from "../../components/Stats"
@@ -8,6 +10,7 @@ import Stats from "../../components/Stats"
 const ADMIN="bus-service"
 
 const BusServiceDashboard = () => {
+  const navigate = useNavigate()
 
   const test = [
     {number:24, text:"new bus pass accpeted"},
@@ -20,6 +23,9 @@ const BusServiceDashboard = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    if(Cookies.get('token')===undefined){
+      navigate('/notfound')
+    }
     // axios.get('https://amr.sytes.net/bus-service/dashboard', {
     //   headers: {
     //     'Accept': 'application/json',

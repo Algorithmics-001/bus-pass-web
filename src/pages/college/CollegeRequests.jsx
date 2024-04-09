@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 import Navbar from "../../components/Navbar"
 import Request from "../../components/Request"
@@ -11,6 +13,7 @@ import Search from "../../components/Search"
 const ADMIN="college"
 
 const AccountRequests = () => {
+  const navigate = useNavigate()
 
   // const test = [
     // {
@@ -131,6 +134,10 @@ const AccountRequests = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    if(Cookies.get('token')===undefined){
+      navigate('/notfound')
+    }
+
     setLoading(true)
     axios.get('https://amr.sytes.net/college/requests', requestType, {
       headers: {

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 import Navbar from "../../components/Navbar"
 import Stats from "../../components/Stats.jsx"
@@ -9,6 +11,7 @@ import Stats from "../../components/Stats.jsx"
 const ADMIN="college"
 
 const CollegeDashboard = () => {
+  const navigate = useNavigate()
 
   const test = [
     {number:34, text:"account requests"},
@@ -24,6 +27,9 @@ const CollegeDashboard = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    if(Cookies.get('token')===undefined){
+      navigate('/notfound')
+    }
     // setLoading(true)
     // axios.get('https://amr.sytes.net/college/dashboard', {
     //   headers: {

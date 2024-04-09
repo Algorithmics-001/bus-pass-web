@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 import Navbar from "../../components/Navbar"
 import FileUploader from "../../components/FileUploader"
@@ -9,6 +11,7 @@ import PreviewRequest from "../../components/PreviewRequest"
 const ADMIN="bus-service"
 
 const BusServiceBulkApprove = () => {
+  const navigate = useNavigate()
 
   const [loading, setLoading] = useState(false)
   const [jsonData, setJsonData] = useState({
@@ -33,6 +36,12 @@ const BusServiceBulkApprove = () => {
       setLoading(false)
     });
   }
+
+  useEffect(() => {
+    if(Cookies.get('token')===undefined){
+      navigate('/notfound')
+    }
+  }, [])
 
   return (
     <>
