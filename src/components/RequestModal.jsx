@@ -29,7 +29,8 @@ const RequestModal = ({ info, id, requestType }) => {
     if(admin == "college"){
       var status = {
         "acc_id": info.acc_id,
-        "form": newAction
+        "form": newAction,
+        "forwarded": (newAction=="accepted")true?false
       }
       console.log(status)
       axios.post('https://amr.sytes.net/api/college/requests/individual ', status, {
