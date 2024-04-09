@@ -9,7 +9,7 @@ const CollegeLogin = () => {
   
   const [loading, setLoading] = useState(false)
   const [credentials, setCredentials] = useState({
-    CollegeName: "",
+    // CollegeName: "",
     UserName: "",
     Password: ""
   })
@@ -21,8 +21,9 @@ const CollegeLogin = () => {
 
   const handleLogin = (event) => {
     setLoading(true)
-    const creds = {"college": credentials.CollegeName, "username": credentials.UserName, "password": credentials.Password}
-    axios.post('https://amr.sytes.net/college/login', creds, {
+    // const creds = {"college": credentials.CollegeName, "username": credentials.UserName, "password": credentials.Password}
+    const creds = {"username": credentials.UserName, "password": credentials.Password}
+    axios.post('http://localhost:8000/college/login', creds, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -45,10 +46,10 @@ const CollegeLogin = () => {
       <center>
       <div className="flex flex-col items-center justify-center max-w-[30em]">
 
-        <label className="input input-bordered flex items-center gap-2 m-2 w-10/12">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
-          <input type="text" className="grow" placeholder="College Name" name="CollegeName" onChange={handleChange}/>
-        </label>
+        {/* <label className="input input-bordered flex items-center gap-2 m-2 w-10/12"> */}
+        {/*   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg> */}
+        {/*   <input type="text" className="grow" placeholder="College Name" name="CollegeName" onChange={handleChange}/> */}
+        {/* </label> */}
 
         <label className="input input-bordered flex items-center gap-2 m-2 w-10/12">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" /></svg>
