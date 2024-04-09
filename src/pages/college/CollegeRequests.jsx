@@ -10,6 +10,8 @@ import FilterDrawer from "../../components/FilterDrawer"
 import Selector from "../../components/Selector"
 import Search from "../../components/Search"
 
+import process_request from "../../fix/fix.jsx"
+
 const ADMIN="college"
 
 const AccountRequests = () => {
@@ -139,7 +141,8 @@ const AccountRequests = () => {
     }
 
     setLoading(true)
-    axios.get('https://amr.sytes.net/college/requests', requestType, {
+    console.log(process_request(requestType))
+    axios.get('https://amr.sytes.net/college/requests', process_request(requestType), {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

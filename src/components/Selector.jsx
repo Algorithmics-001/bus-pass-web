@@ -15,7 +15,7 @@ const Selector = ({ admin, setRequestType }) => {
             <option disabled selected className="text-md">Choose request type</option>
             <optgroup label="Account Requests">
               <option value="account-request">Account requests</option>
-              <option value="account-request-accpted">Account accepted</option>
+              <option value="account-request-accepted">Account accepted</option>
               <option value="account-request-rejected">Account rejected</option>
             </optgroup>
             <optgroup label="New Bus Pass Requests">
