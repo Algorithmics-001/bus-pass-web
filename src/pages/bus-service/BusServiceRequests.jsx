@@ -17,89 +17,6 @@ const ADMIN="bus-service"
 const BusServiceRequests = () => {
   const navigate = useNavigate()
 
-  // const test = [
-  //   {
-  //     "name": "Alice Johnson",
-  //     "email": "alice.johnson@example.com",
-  //     "college": "ABC University",
-  //     "rollno": 123,
-  //     "department": "Computer Science",
-  //     "phone": 1234567890,
-  //   },
-  //   {
-  //     "name": "Bob Smith",
-  //     "email": "bob.smith@example.com",
-  //     "college": "XYZ College",
-  //     "rollno": 456,
-  //     "department": "Electrical Engineering",
-  //     "phone": 2345678901,
-  //   },
-  //   {
-  //     "name": "Charlie Brown",
-  //     "email": "charlie.brown@example.com",
-  //     "college": "DEF Institute",
-  //     "rollno": 789,
-  //     "department": "Mechanical Engineering",
-  //     "phone": 3456789012,
-  //   },
-  //   {
-  //     "name": "David Lee",
-  //     "email": "david.lee@example.com",
-  //     "college": "GHI University",
-  //     "rollno": 1011,
-  //     "department": "Civil Engineering",
-  //     "phone": 4567890123,
-  //   },
-  //   {
-  //     "name": "Emily Taylor",
-  //     "email": "emily.taylor@example.com",
-  //     "college": "JKL College",
-  //     "rollno": 1213,
-  //     "department": "Chemistry",
-  //     "phone": 5678901234,
-  //   },
-  //   {
-  //     "name": "Frank White",
-  //     "email": "frank.white@example.com",
-  //     "college": "MNO Institute",
-  //     "rollno": 1415,
-  //     "department": "Biology",
-  //     "phone": 6789012345,
-  //   },
-  //   {
-  //     "name": "Grace Martinez",
-  //     "email": "grace.martinez@example.com",
-  //     "college": "PQR University",
-  //     "rollno": 1617,
-  //     "department": "Physics",
-  //     "phone": 7890123456,
-  //   },
-  //   {
-  //     "name": "Henry Davis",
-  //     "email": "henry.davis@example.com",
-  //     "college": "STU College",
-  //     "rollno": 1819,
-  //     "department": "Mathematics",
-  //     "phone": 8901234567,
-  //   },
-  //   {
-  //     "name": "Isabel Garcia",
-  //     "email": "isabel.garcia@example.com",
-  //     "college": "VWX Institute",
-  //     "rollno": 2021,
-  //     "department": "Computer Engineering",
-  //     "phone": 9012345678,
-  //   },
-  //   {
-  //     "name": "Jack Brown",
-  //     "email": "jack.brown@example.com",
-  //     "college": "YZA University",
-  //     "rollno": 2223,
-  //     "department": "Information Technology",
-  //     "phone": 1234567890,
-  //   }
-  // ];
-
   const [requests, setRequests] = useState([])
   const [render, setRender] = useState([])
   const [requestType, setRequestType] = useState("");
@@ -156,7 +73,7 @@ const BusServiceRequests = () => {
             :
             <>
             {render.map((data, index) => (
-              <Request key={index} info={data} requestType={requestType} />
+              <Request key={index} info={data} requestType={requestType} admin={ADMIN}/>
             ))}</>
           }
         </div>
