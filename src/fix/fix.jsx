@@ -5,7 +5,7 @@ export default function process_request(request){
       return {"account": "applied"}
     }
     else if(arr[2] == "accepted"){
-      return {"account": "accepted"}
+      return {"account": "student"}
     }
     else if(arr[2] == "rejected"){
       return {"account": "rejected"}
