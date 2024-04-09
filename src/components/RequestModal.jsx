@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const RequestModal = ({ info, id, requestType }) => {
+const RequestModal = ({ admin, info, id, requestType }) => {
 
   const handleRequest = (event) => {
     const decision = event.target.value  
@@ -10,7 +10,7 @@ const RequestModal = ({ info, id, requestType }) => {
     }
     console.log(status)
 
-    axios.post('https://amr.sytes.net/college/requests/individual ', status, {
+    axios.post('https://amr.sytes.net/api/college/requests/individual ', status, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
