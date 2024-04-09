@@ -63,7 +63,7 @@ const CollegeBulkApprove = () => {
         <h1>Preview</h1>
 
         {jsonData.students.map((student, index) => 
-          <PreviewRequest key={index}/>
+          <PreviewRequest key={index} info={student}/>
         )}
       </div>
     </>
