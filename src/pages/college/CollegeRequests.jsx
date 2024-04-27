@@ -29,7 +29,7 @@ const AccountRequests = () => {
 
     setLoading(true)
     console.log(process_request(requestType))
-    axios.post('https://amr.sytes.net/api/college/requests', process_request(requestType), {
+    axios.post('https://amr.sytes.net/api/college/requests', requestType, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

@@ -3,8 +3,30 @@ import React, { useState, useEffect } from 'react';
 const Selector = ({ admin, setRequestType }) => {
 
   const handleChange = (event) => {
-    setRequestType(event.target.value);
-    console.log(event.target.value)
+    const selection = event.target.value;
+
+    const cases = {
+      'account-request': {'account': 'applied'},
+      'account-request-accepted': {'account': 'student'},
+      'account-request-rejected': {'account': 'rejected'},
+
+      'college-bus-pass-request': {'account': 'studnet', 'form': 'applied', 'forwarded': false, 'renew': false},
+      'college-bus-pass-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': false, 'renew': false},
+      'college-bus-pass-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': false, 'renew': false},
+
+      'college-bus-pass-renew-request': {'account': 'studnet', 'form': 'applied', 'forwarded': false, 'renew': true},
+      'college-bus-pass-renew-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': false, 'renew': true},
+      'college-bus-pass-renew-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': false, 'renew': true},
+
+      'bus-service-bus-pass-request': {'account': 'studnet', 'form': 'applied', 'forwarded': true, 'renew': false},
+      'bus-service-bus-pass-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': true, 'renew': false},
+      'bus-service-bus-pass-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': true, 'renew': false},
+
+      'bus-service-bus-pass-renew-request': {'account': 'studnet', 'form': 'applied', 'forwarded': true, 'renew': true},
+      'bus-service-bus-pass-renew-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': true, 'renew': true},
+      'bus-service-bus-pass-renew-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': true, 'renew': true},
+    }
+    setRequestType(cases[selection]);
   };
 
   return (
