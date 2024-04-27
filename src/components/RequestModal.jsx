@@ -4,7 +4,7 @@ const _ = require('lodash');
 const RequestModal = ({ admin, info, id, requestType }) => {
 
   const handleAccount = (response) => {
-    var newState = {'account': null}
+    var newState = {'acc_id':id, 'account': null}
     switch (response) {
       case 'a':
         newState.account = "applied"; 
@@ -17,7 +17,7 @@ const RequestModal = ({ admin, info, id, requestType }) => {
         break;
     }
 
-    axios.post('https://amr.sytes.net/api/college/requests', newState, {
+    axios.post('https://amr.sytes.net/api/college/requests/individual', newState, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const RequestModal = ({ admin, info, id, requestType }) => {
   }
 
   const handleApplication= (response) => {
-    var newState = {'account': 'student'}
+    var newState = {'acc_id':id, 'account': 'student'}
     if(admin == "college"){
       switch (response) {
         case 'a':
@@ -70,7 +70,7 @@ const RequestModal = ({ admin, info, id, requestType }) => {
       }
     }
 
-    axios.post('https://amr.sytes.net/api/college/requests', newState, {
+    axios.post('https://amr.sytes.net/api/college/requests/individual', newState, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
