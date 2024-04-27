@@ -10,21 +10,25 @@ const Selector = ({ admin, setRequestType }) => {
       'account-request-accepted': {'account': 'student'},
       'account-request-rejected': {'account': 'rejected'},
 
-      'college-bus-pass-request': {'account': 'studnet', 'form': 'applied', 'forwarded': false, 'renew': false},
-      'college-bus-pass-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': false, 'renew': false},
-      'college-bus-pass-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': false, 'renew': false},
+      'college-bus-pass-request': {'account': 'student', 'form': 'applied', 'forwarded': false, 'renew': false},
+      'college-bus-pass-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': false, 'renew': false},
+      'college-bus-pass-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': false, 'renew': false},
 
-      'college-bus-pass-renew-request': {'account': 'studnet', 'form': 'applied', 'forwarded': false, 'renew': true},
-      'college-bus-pass-renew-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': false, 'renew': true},
-      'college-bus-pass-renew-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': false, 'renew': true},
+      'college-bus-pass-forwarded-request': {'account': 'student', 'form': 'applied', 'forwarded': true},
+      'college-bus-pass-forwarded-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': true},
+      'college-bus-pass-forwarded-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': true},
 
-      'bus-service-bus-pass-request': {'account': 'studnet', 'form': 'applied', 'forwarded': true, 'renew': false},
-      'bus-service-bus-pass-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': true, 'renew': false},
-      'bus-service-bus-pass-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': true, 'renew': false},
+      'college-bus-pass-renew-request': {'account': 'student', 'form': 'applied', 'forwarded': false, 'renew': true},
+      'college-bus-pass-renew-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': false, 'renew': true},
+      'college-bus-pass-renew-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': false, 'renew': true},
 
-      'bus-service-bus-pass-renew-request': {'account': 'studnet', 'form': 'applied', 'forwarded': true, 'renew': true},
-      'bus-service-bus-pass-renew-request-accepted': {'account': 'studnet', 'form': 'accepted', 'forwarded': true, 'renew': true},
-      'bus-service-bus-pass-renew-request-rejected': {'account': 'studnet', 'form': 'rejected', 'forwarded': true, 'renew': true},
+      'bus-service-bus-pass-request': {'account': 'student', 'form': 'applied', 'forwarded': true, 'renew': false},
+      'bus-service-bus-pass-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': true, 'renew': false},
+      'bus-service-bus-pass-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': true, 'renew': false},
+
+      'bus-service-bus-pass-renew-request': {'account': 'student', 'form': 'applied', 'forwarded': true, 'renew': true},
+      'bus-service-bus-pass-renew-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': true, 'renew': true},
+      'bus-service-bus-pass-renew-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': true, 'renew': true},
     }
     setRequestType(cases[selection]);
   };
@@ -44,6 +48,11 @@ const Selector = ({ admin, setRequestType }) => {
               <option value="college-bus-pass-request">New bus pass requests</option>
               <option value="college-bus-pass-request-accepted">New bus pass accepted</option>
               <option value="college-bus-pass-request-rejected">New bus pass rejected</option>
+            </optgroup>
+            <optgroup label="Forwarded Requests">
+              <option value="college-bus-pass-forwarded-request">Forwarded by college</option>
+              <option value="college-bus-pass-forwarded-request-accepted">Forward accepted</option>
+              <option value="college-bus-pass-forwarded-request-rejected">Forward rejected</option>
             </optgroup>
             <optgroup label="Renew Bus Pass Requests">
               <option value="college-bus-pass-renew-request">Renew bus pass</option>

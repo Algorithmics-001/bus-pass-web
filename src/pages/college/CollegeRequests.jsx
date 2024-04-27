@@ -17,7 +17,7 @@ const AccountRequests = () => {
 
   const [requests, setRequests] = useState([])
   const [render, setRender] = useState([])
-  const [requestType, setRequestType] = useState("");
+  const [requestType, setRequestType] = useState(null);
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
