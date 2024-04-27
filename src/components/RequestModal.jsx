@@ -1,5 +1,4 @@
 import axios from 'axios';
-const _ = require('lodash');
 
 const RequestModal = ({ admin, info, id, requestType }) => {
 
@@ -102,19 +101,21 @@ const RequestModal = ({ admin, info, id, requestType }) => {
           <div className="modal-action">
 
             {(requestType.renew == null && requestType.forwarded == null && requestType.form == null) ?
-              {(requestType.account != 'applied') && <button className="btn btn-outline" onClick={() => handleAccount('a')}>Restore</button>}
-              {(requestType.account != 'student') && <button className="btn btn-outline" onClick={() => handleAccount('o')}>Accept</button>}
-              {(requestType.account != 'rejected') && <button className="btn btn-outline" onClick={() => handleAccount('r')}>Reject</button>}
+              <>
+                {(requestType.account != 'applied') && <button className="btn btn-outline" onClick={() => handleAccount('a')}>Restore</button>}
+                {(requestType.account != 'student') && <button className="btn btn-outline" onClick={() => handleAccount('o')}>Accept</button>}
+                {(requestType.account != 'rejected') && <button className="btn btn-outline" onClick={() => handleAccount('r')}>Reject</button>}
+              </>
             :
-              {(requestType.form != 'applied') && <button className="btn btn-outline" onClick={() => handleApplication('a')}>Restore</button>}
-              {(requestType.form != 'accepted') && <button className="btn btn-outline" onClick={() => handleApplication('o')}>Accept</button>}
-              {(requestType.form != 'accepted') && (admin=='college')) && <button className="btn btn-outline" onClick={() => handleApplication('f')}>Forward</button>}
-              {(requestType.form != 'accepted') && (admin=='college') && (requestType.forwarded == 1)) && <button className="btn btn-outline" onClick={() => handleApplication('o')}>Withdraw</button>}
-              {(requestType.form != 'rejected') && <button className="btn btn-outline" onClick={() => handleApplication('r')}>Reject</button>}
-              }
+              <>
+                {(requestType.form != 'applied') && <button className="btn btn-outline" onClick={() => handleApplication('a')}>Restore</button>}
+                {(requestType.form != 'accepted') && <button className="btn btn-outline" onClick={() => handleApplication('o')}>Accept</button>}
+                {((requestType.form != 'accepted') && (admin=='college')) && <button className="btn btn-outline" onClick={() => handleApplication('f')}>Forward</button>}
+                {((requestType.form != 'accepted') && (admin=='college') && (requestType.forwarded == 1)) && <button className="btn btn-outline" onClick={() => handleApplication('o')}>Withdraw</button>}
+                {(requestType.form != 'rejected') && <button className="btn btn-outline" onClick={() => handleApplication('r')}>Reject</button>}
+              </>
             }
 
-            <button className="btn">Close</button>
           </div>
         </div>
       </dialog>
