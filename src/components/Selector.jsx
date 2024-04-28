@@ -4,33 +4,7 @@ const Selector = ({ admin, setRequestType }) => {
 
   const handleChange = (event) => {
     const selection = event.target.value;
-
-    const cases = {
-      'account-request': {'account': 'applied'},
-      'account-request-accepted': {'account': 'student'},
-      'account-request-rejected': {'account': 'rejected'},
-
-      'college-bus-pass-request': {'account': 'student', 'form': 'applied', 'forwarded': false, 'renew': false},
-      'college-bus-pass-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': false, 'renew': false},
-      'college-bus-pass-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': false, 'renew': false},
-
-      'college-bus-pass-forwarded-request': {'account': 'student', 'form': 'applied', 'forwarded': true},
-      'college-bus-pass-forwarded-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': true},
-      'college-bus-pass-forwarded-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': true},
-
-      'college-bus-pass-renew-request': {'account': 'student', 'form': 'applied', 'forwarded': false, 'renew': true},
-      'college-bus-pass-renew-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': false, 'renew': true},
-      'college-bus-pass-renew-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': false, 'renew': true},
-
-      'bus-service-bus-pass-request': {'account': 'student', 'form': 'applied', 'forwarded': true, 'renew': false},
-      'bus-service-bus-pass-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': true, 'renew': false},
-      'bus-service-bus-pass-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': true, 'renew': false},
-
-      'bus-service-bus-pass-renew-request': {'account': 'student', 'form': 'applied', 'forwarded': true, 'renew': true},
-      'bus-service-bus-pass-renew-request-accepted': {'account': 'student', 'form': 'accepted', 'forwarded': true, 'renew': true},
-      'bus-service-bus-pass-renew-request-rejected': {'account': 'student', 'form': 'rejected', 'forwarded': true, 'renew': true},
-    }
-    setRequestType(cases[selection]);
+    setRequestType(selection);
   };
 
   return (

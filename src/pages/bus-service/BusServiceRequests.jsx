@@ -5,7 +5,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie'
 
 import Navbar from "../../components/Navbar"
-import Request from "../../components/Request"
+// import Request from "../../components/Request"
+import RequestTable from "../../components/RequestTable"
 import FilterDrawer from "../../components/FilterDrawer"
 import Selector from "../../components/Selector"
 import Search from "../../components/Search"
@@ -66,14 +67,15 @@ const BusServiceRequests = () => {
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          {loading ? 
-            <span className="loading loading-bars loading-lg"></span>
-            :
-            <>
-            {render.map((data, index) => (
-              <Request key={index} info={data} requestType={requestType} admin={ADMIN}/>
-            ))}</>
-          }
+          <RequestTable data={render} />
+          {/* {loading ?  */}
+          {/*   <span className="loading loading-bars loading-lg"></span> */}
+          {/*   : */}
+          {/*   <> */}
+          {/*   {render.map((data, index) => ( */}
+          {/*     <Request key={index} info={data} requestType={requestType} admin={ADMIN}/> */}
+          {/*   ))}</> */}
+          {/* } */}
         </div>
 
       </div>
