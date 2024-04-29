@@ -28,23 +28,35 @@ const AccountRequests = () => {
     let endpoint = "https://amr.sytes.net/api/college"
     if(requestType[0]=='a'){
       endpoint = endpoint + "/account/get"
+      switch (requestType[1]) {
+        case '?':
+          endpoint = endpoint + "/applied"
+          break;
+        case 'a':
+          endpoint = endpoint + "/accepted"
+          break;
+        case 'r':
+          endpoint = endpoint + "/rejected"
+          break;
+      }
     }
     else if(requestType[0]=='b'){
       endpoint = endpoint + "/pass/get"
-    }
-    switch (requestType[4]) {
-      case '?':
-        endpoint = endpoint + "/applied"
-        break;
-      case 'a':
-        endpoint = endpoint + ((requestType[0]=='a')?"/accepted":"/forwarded")
-        break;
-      case 'r':
-        endpoint = endpoint + "/rejected"
-        break;
+      switch (requestType[3]) {
+        case '?':
+          endpoint = endpoint + "/applied"
+          break;
+        case 'a':
+          endpoint = endpoint + "/forwarded"
+          break;
+        case 'r':
+          endpoint = endpoint + "/rejected"
+          break;
+      }
     }
     if(requestType[2]=='r'){endpoint = endpoint + "?type=true"}
 
+    console.log(endpoint)
     axios.post(endpoint, {
       headers: {
         'Accept': 'application/json',

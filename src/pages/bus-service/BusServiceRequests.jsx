@@ -26,7 +26,7 @@ const BusServiceRequests = () => {
 
     setLoading(true)
     let endpoint = "https://amr.sytes.net/api/service/pass/get"
-    switch (requestType[4]) {
+    switch (requestType[3]) {
       case '?':
         endpoint = endpoint + "/applied"
         break;
@@ -39,22 +39,23 @@ const BusServiceRequests = () => {
     }
     if(requestType[2]=='r'){endpoint = endpoint + "?type=true"}
 
-    axios.post(endpoint, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    .then(response => {
-      console.log('Response:', response.data);
-      setRequests(response.data) 
-      setRender(response.data)
-      setLoading(false)
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      setLoading(false)
-    });
+    console.log(endpoint)
+    // axios.post(endpoint, {
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   }
+    // })
+    // .then(response => {
+    //   console.log('Response:', response.data);
+    //   setRequests(response.data) 
+    //   setRender(response.data)
+    //   setLoading(false)
+    // })
+    // .catch(error => {
+    //   console.error('Error:', error);
+    //   setLoading(false)
+    // });
   }, [requestType])
 
   return (
