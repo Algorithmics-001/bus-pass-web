@@ -57,7 +57,7 @@ const AccountRequests = () => {
     if(requestType[2]=='r'){endpoint = endpoint + "?type=true"}
 
     console.log(endpoint)
-    axios.post(endpoint, {
+    axios.get(endpoint, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

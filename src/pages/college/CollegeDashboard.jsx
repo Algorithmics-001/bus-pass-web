@@ -31,7 +31,7 @@ const CollegeDashboard = () => {
     //   navigate('/notfound')
     // }
     setLoading(true)
-    axios.get('https://amr.sytes.net/college/dashboard', {
+    axios.get('https://amr.sytes.net/api/college/dashboard', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

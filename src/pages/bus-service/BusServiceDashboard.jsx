@@ -26,7 +26,7 @@ const BusServiceDashboard = () => {
     // if(Cookies.get('token')===undefined){
     //   navigate('/notfound')
     // }
-    axios.get('https://amr.sytes.net/college/dashboard', {
+    axios.get('https://amr.sytes.net/api/college/dashboard', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
