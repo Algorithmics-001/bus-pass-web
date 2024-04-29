@@ -107,7 +107,7 @@ const RequestTable = ({ data, requestType, admin }) => {
                     </svg>
                     View
                   </button>
-                  <RequestModal key={index} student_id={`infoModal_${row.student_id}`} info={row.name} requestType={requestType} admin={admin}/>
+                  <RequestModal key={index} student_id={`infoModal_${row.student_id}`} user_id={row.userid} info={row.name} requestType={requestType} admin={admin}/>
                 </td>
               </tr>
             ))}

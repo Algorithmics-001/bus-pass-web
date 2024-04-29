@@ -1,37 +1,39 @@
 import axios from 'axios';
 
-const RequestModal = ({ student_id, info, requestType, admin }) => {
+const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
 
   const handleAccount = (status) => {
+    let endpoint = `https://amr.sytes.net/api/college/account/${user_id}`
     switch (status[1]) {
       case '?':
-        //
+        endpoint = endpoint + "applied" 
         break;
       case 'a':
-        //
+        endpoint = endpoint + "accepted" 
         break;
       case 'r':
-        //
+        endpoint = endpoint + "rejected" 
         break;
     }
   }
 
   const handlePass = (status) => {
+    let endpoint = "https://amr.sytes.net/api"
     if(admin == "college"){
-      //
+      endpoint = endpoint + "/college" 
     }
     else if(admin == "bus-service"){
-      //
+      endpoint = endpoint + "/service" 
     }
     switch (status[3]) {
       case '?':
-        //
+        endpoint = endpoint + "/applied"
         break;
       case 'a':
-        //
+        endpoint = endpoint + ((requestType[0]=='a')?"/accepted":"/forwarded")
         break;
       case 'r':
-        //
+        endpoint = endpoint + "/rejected"
         break;
     }
   }
