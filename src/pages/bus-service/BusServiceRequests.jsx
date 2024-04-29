@@ -14,6 +14,7 @@ const ADMIN="bus-service"
 const BusServiceRequests = () => {
   const navigate = useNavigate()
 
+  const [trigger, setTrigger] = useState(true)
   const [requests, setRequests] = useState([])
   const [render, setRender] = useState([])
   const [requestType, setRequestType] = useState('bbf?');
@@ -56,7 +57,7 @@ const BusServiceRequests = () => {
       console.error('Error:', error);
       setLoading(false)
     });
-  }, [requestType])
+  }, [requestType, trigger])
 
   return (
     <>
@@ -73,7 +74,7 @@ const BusServiceRequests = () => {
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          <RequestTable data={render} requestType={requestType} admin={ADMIN}/>
+          <RequestTable data={render} requestType={requestType} admin={ADMIN} setTrigger={setTrigger}/>
         </div>
 
       </div>

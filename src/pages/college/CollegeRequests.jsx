@@ -14,6 +14,7 @@ const ADMIN="college"
 const AccountRequests = () => {
   const navigate = useNavigate()
 
+  const [trigger, setTrigger] = useState(true)
   const [requests, setRequests] = useState([])
   const [render, setRender] = useState([])
   const [requestType, setRequestType] = useState('a?');
@@ -73,7 +74,7 @@ const AccountRequests = () => {
       console.error('Error:', error);
       setLoading(false)
     });
-  }, [requestType])
+  }, [requestType, trigger])
 
   return (
     <>
@@ -90,7 +91,7 @@ const AccountRequests = () => {
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          <RequestTable data={render} requestType={requestType} admin={ADMIN}/>
+          <RequestTable data={render} requestType={requestType} admin={ADMIN} setTrigger={setTrigger}/>
         </div>
 
       </div>

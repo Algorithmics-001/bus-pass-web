@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
+const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigger }) => {
 
   const handleAccount = (status) => {
     let endpoint = `https://amr.sytes.net/api/college/account/${user_id}`
@@ -24,6 +24,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
     })
     .then(response => {
       console.log('Response:', response.data);
+      setTrigger(prevState => !prevState)
     })
     .catch(error => {
       console.error('Error:', error);
@@ -58,6 +59,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
     })
     .then(response => {
       console.log('Response:', response.data);
+      setTrigger(prevState => !prevState)
     })
     .catch(error => {
       console.error('Error:', error);
