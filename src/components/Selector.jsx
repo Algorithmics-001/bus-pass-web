@@ -11,7 +11,7 @@ const Selector = ({ admin, setRequestType }) => {
     <>
       {(admin == "college") ? 
         (
-          <select className="select w-full max-w-xs" onChange={handleChange} defaultValue="">
+          <select className="select w-full max-w-xs" onChange={handleChange} defaultValue="a?">
             <option disabled selected className="text-md">Choose request type</option>
             <optgroup label="Account Requests">
               <option value="a?">Account requests</option>
@@ -32,7 +32,7 @@ const Selector = ({ admin, setRequestType }) => {
         )
         :
         (
-          <select className="select w-full max-w-xs" onChange={handleChange} defaultValue="">
+          <select className="select w-full max-w-xs" onChange={handleChange} defaultValue="bbf?">
             <option disabled selected className="text-md">Choose request type</option>
               <optgroup label="New Bus Pass Requests">
                 <option value="bbf?">New bus pass requests</option>

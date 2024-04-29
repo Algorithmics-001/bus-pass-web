@@ -18,7 +18,7 @@ const BusServiceRequests = () => {
 
   const [requests, setRequests] = useState([])
   const [render, setRender] = useState([])
-  const [requestType, setRequestType] = useState(null);
+  const [requestType, setRequestType] = useState('bbf?');
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {

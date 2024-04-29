@@ -38,7 +38,7 @@ const RequestModal = ({ student_id, info, requestType, admin }) => {
 
   return (
     <>
-      <dialog id={id} className="modal">
+      <dialog id={student_id} className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">{info}</h3>
             {(requestType[0]=='a') ?(

@@ -139,7 +139,7 @@ const AccountRequests = () => {
       'phone': '+5566778899'
     }
   ])
-  const [requestType, setRequestType] = useState('');
+  const [requestType, setRequestType] = useState('a?');
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
