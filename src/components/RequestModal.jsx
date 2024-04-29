@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const RequestModal = ({ id, info, requestType, admin }) => {
+const RequestModal = ({ student_id, info, requestType, admin }) => {
 
   const handleAccount = (status) => {
     switch (status[1]) {
