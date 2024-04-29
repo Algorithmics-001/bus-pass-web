@@ -30,23 +30,23 @@ const CollegeDashboard = () => {
     // if(Cookies.get('token')===undefined){
     //   navigate('/notfound')
     // }
-    // setLoading(true)
-    // axios.get('https://amr.sytes.net/college/dashboard', {
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   }
-    // })
-    //   .then(response => {
-    //     console.log('Response:', response.data);
-    //     setStats(response.data) // assuming response.data is a array of objects
-    //     setLoading(false)
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //     setLoading(false)
-    //   });
-  }, []) // here the jwt is being set automatically 
+    setLoading(true)
+    axios.get('https://amr.sytes.net/college/dashboard', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => {
+        console.log('Response:', response.data);
+        setStats(response.data) 
+        setLoading(false)
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setLoading(false)
+      });
+  }, []) 
 
   return (
     <>

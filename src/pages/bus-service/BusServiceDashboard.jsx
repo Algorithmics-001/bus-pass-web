@@ -26,20 +26,20 @@ const BusServiceDashboard = () => {
     // if(Cookies.get('token')===undefined){
     //   navigate('/notfound')
     // }
-    // axios.get('https://amr.sytes.net/bus-service/dashboard', {
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   }
-    // })
-    //   .then(response => {
-    //     console.log('Response:', response.data);
-    //     setStats(response.data) // assuming response.data is a array of objects
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //   });
-  }, []) // here the jwt is being set automatically 
+    axios.get('https://amr.sytes.net/college/dashboard', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => {
+        console.log('Response:', response.data);
+        setStats(response.data) 
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []) 
 
   return (
     <>
