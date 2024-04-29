@@ -4,7 +4,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
 
   const handleAccount = (status) => {
     let endpoint = `https://amr.sytes.net/api/college/account/${user_id}`
-    switch (status[1]) {
+    switch (status) {
       case '?':
         endpoint = endpoint + "/applied" 
         break;
@@ -38,7 +38,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
     else if(admin == "bus-service"){
       endpoint = endpoint + `/service/pass/${user_id}` 
     }
-    switch (status[3]) {
+    switch (status) {
       case '?':
         endpoint = endpoint + "/applied"
         break;
