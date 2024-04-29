@@ -6,24 +6,37 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
     let endpoint = `https://amr.sytes.net/api/college/account/${user_id}`
     switch (status[1]) {
       case '?':
-        endpoint = endpoint + "applied" 
+        endpoint = endpoint + "/applied" 
         break;
       case 'a':
-        endpoint = endpoint + "accepted" 
+        endpoint = endpoint + "/accepted" 
         break;
       case 'r':
-        endpoint = endpoint + "rejected" 
+        endpoint = endpoint + "/rejected" 
         break;
     }
+    console.log(endpoint)
+    axios.post(endpoint, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 
   const handlePass = (status) => {
     let endpoint = "https://amr.sytes.net/api"
     if(admin == "college"){
-      endpoint = endpoint + "/college" 
+      endpoint = endpoint + `/college/pass/${user_id}` 
     }
     else if(admin == "bus-service"){
-      endpoint = endpoint + "/service" 
+      endpoint = endpoint + `/service/pass/${user_id}` 
     }
     switch (status[3]) {
       case '?':
@@ -36,6 +49,19 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin }) => {
         endpoint = endpoint + "/rejected"
         break;
     }
+    console.log(endpoint)
+    axios.post(endpoint, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => {
+      console.log('Response:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 
   return (
