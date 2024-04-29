@@ -139,7 +139,7 @@ const AccountRequests = () => {
       'phone': '+5566778899'
     }
   ])
-  const [requestType, setRequestType] = useState(null);
+  const [requestType, setRequestType] = useState('');
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -190,7 +190,7 @@ const AccountRequests = () => {
         </div>
 
         <div className="mt-10 h-screen overflow-scroll">
-          <RequestTable data={render} />
+          <RequestTable data={render} requestType={requestType} admin={ADMIN}/>
           {/* {loading ?  */}
           {/*   <span className="loading loading-bars loading-lg"></span> */}
           {/*   : */}

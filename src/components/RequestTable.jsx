@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import RequestModal from "./RequestModal.jsx";
 
-const RequestTable = ({ data }) => {
+const RequestTable = ({ data, requestType, admin }) => {
   const [sortConfig, setSortConfig] = useState(null);
 
   const handleSort = (field) => {
@@ -107,7 +107,7 @@ const RequestTable = ({ data }) => {
                     </svg>
                     View
                   </button>
-                  <RequestModal key={index} id={`infoModal_${row.id}`} info={row.name}/>
+                  <RequestModal key={index} id={`infoModal_${row.id}`} info={row.name} requestType={requestType} admin={admin}/>
                 </td>
               </tr>
             ))}
