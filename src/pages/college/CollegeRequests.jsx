@@ -17,128 +17,7 @@ const AccountRequests = () => {
   const navigate = useNavigate()
 
   const [requests, setRequests] = useState([])
-  const [render, setRender] = useState([
-    {
-      'id': 1,
-      'name': 'Alice Smith',
-      'email': 'alice.smith@example.com',
-      'course': 'Computer Science',
-      'batch': 2022,
-      'semester': 4,
-      'rollno': 1,
-      'department': 'Computer Science',
-      'address': '123 Main St, City, Country',
-      'phone': '+1234567890'
-    },
-    {
-      'id': 2,
-      'name': 'Bob Johnson',
-      'email': 'bob.johnson@example.com',
-      'course': 'Mechanical Engineering',
-      'batch': 2023,
-      'semester': 3,
-      'rollno': 5,
-      'department': 'Mechanical Engineering',
-      'address': '456 Elm St, City, Country',
-      'phone': '+1987654321'
-    },
-    {
-      'id': 3,
-      'name': 'Charlie Brown',
-      'email': 'charlie.brown@example.com',
-      'course': 'Physics',
-      'batch': 2022,
-      'semester': 5,
-      'rollno': 3,
-      'department': 'Physics',
-      'address': '789 Oak St, City, Country',
-      'phone': '+1357924680'
-    },
-    {
-      'id': 4,
-      'name': 'Diana Martinez',
-      'email': 'diana.martinez@example.com',
-      'course': 'Biology',
-      'batch': 2024,
-      'semester': 2,
-      'rollno': 2,
-      'department': 'Biology',
-      'address': '987 Pine St, City, Country',
-      'phone': '+2468135790'
-    },
-    {
-      'id': 5,
-      'name': 'Ethan Wilson',
-      'email': 'ethan.wilson@example.com',
-      'course': 'Chemistry',
-      'batch': 2023,
-      'semester': 4,
-      'rollno': 7,
-      'department': 'Chemistry',
-      'address': '234 Maple St, City, Country',
-      'phone': '+1122334455'
-    },
-    {
-      'id': 6,
-      'name': 'Fiona Garcia',
-      'email': 'fiona.garcia@example.com',
-      'course': 'Mathematics',
-      'batch': 2022,
-      'semester': 6,
-      'rollno': 4,
-      'department': 'Mathematics',
-      'address': '345 Cedar St, City, Country',
-      'phone': '+6677889900'
-    },
-    {
-      'id': 7,
-      'name': 'George Lee',
-      'email': 'george.lee@example.com',
-      'course': 'Electrical Engineering',
-      'batch': 2023,
-      'semester': 2,
-      'rollno': 9,
-      'department': 'Electrical Engineering',
-      'address': '567 Walnut St, City, Country',
-      'phone': '+9988776655'
-    },
-    {
-      'id': 8,
-      'name': 'Hannah Allen',
-      'email': 'hannah.allen@example.com',
-      'course': 'Psychology',
-      'batch': 2024,
-      'semester': 1,
-      'rollno': 6,
-      'department': 'Psychology',
-      'address': '678 Birch St, City, Country',
-      'phone': '+1122334455'
-    },
-    {
-      'id': 9,
-      'name': 'Ian Taylor',
-      'email': 'ian.taylor@example.com',
-      'course': 'History',
-      'batch': 2023,
-      'semester': 3,
-      'rollno': 8,
-      'department': 'History',
-      'address': '890 Sycamore St, City, Country',
-      'phone': '+3344556677'
-    },
-    {
-      'id': 10,
-      'name': 'Jennifer Rodriguez',
-      'email': 'jennifer.rodriguez@example.com',
-      'course': 'English',
-      'batch': 2022,
-      'semester': 5,
-      'rollno': 10,
-      'department': 'English',
-      'address': '901 Cedar St, City, Country',
-      'phone': '+5566778899'
-    }
-  ])
+  const [render, setRender] = useState([])
   const [requestType, setRequestType] = useState('a?');
   const [loading, setLoading] = useState(false)
 
@@ -148,7 +27,27 @@ const AccountRequests = () => {
     // }
 
     setLoading(true)
-    axios.post('https://amr.sytes.net/api/college/requests', requestType, {
+    let endpoint = "https://amr.sytes.net/api/college"
+    if(requestType[0]=='a'){
+      endpoint = endpoint + "/account/get"
+    }
+    else if(requestType[0]=='b'){
+      endpoint = endpoint + "/pass/get"
+    }
+    switch (requestType[4]) {
+      case '?':
+        endpoint = endpoint + "/applied"
+        break;
+      case 'a':
+        endpoint = endpoint + ((requestType[0]=='a')?"/accepted":"/forwarded")
+        break;
+      case 'r':
+        endpoint = endpoint + "/rejected"
+        break;
+    }
+    if(requestType[2]=='r'){endpoint = endpoint + "?type=true"}
+
+    axios.post(endpoint, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -156,7 +55,7 @@ const AccountRequests = () => {
     })
     .then(response => {
       console.log('Response:', response.data);
-      setRequests(response.data) // assuming response.data is an array of student object
+      setRequests(response.data) 
       setRender(response.data)
       setLoading(false)
     })
@@ -191,14 +90,6 @@ const AccountRequests = () => {
 
         <div className="mt-10 h-screen overflow-scroll">
           <RequestTable data={render} requestType={requestType} admin={ADMIN}/>
-          {/* {loading ?  */}
-          {/*   <span className="loading loading-bars loading-lg"></span> */}
-          {/*   : */}
-          {/*   <> */}
-          {/*   {render.map((data, index) => ( */}
-          {/*     <Request key={index} info={data} requestType={requestType} admin={ADMIN}/> */}
-          {/*   ))}</> */}
-          {/* } */}
         </div>
 
       </div>

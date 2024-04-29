@@ -27,7 +27,21 @@ const BusServiceRequests = () => {
     // }
 
     setLoading(true)
-    axios.post('https://amr.sytes.net/api/bus-service/requests', requestType, {
+    let endpoint = "https://amr.sytes.net/api/service/pass/get"
+    switch (requestType[4]) {
+      case '?':
+        endpoint = endpoint + "/applied"
+        break;
+      case 'a':
+        endpoint = endpoint + "/accepted"
+        break;
+      case 'r':
+        endpoint = endpoint + "/rejected"
+        break;
+    }
+    if(requestType[2]=='r'){endpoint = endpoint + "?type=true"}
+
+    axios.post(endpoint, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -35,7 +49,7 @@ const BusServiceRequests = () => {
     })
     .then(response => {
       console.log('Response:', response.data);
-      setRequests(response.data) // assuming response.data is an array of student object
+      setRequests(response.data) 
       setRender(response.data)
       setLoading(false)
     })
@@ -68,14 +82,6 @@ const BusServiceRequests = () => {
 
         <div className="mt-10 h-screen overflow-scroll">
           <RequestTable data={render} requestType={requestType} admin={ADMIN}/>
-          {/* {loading ?  */}
-          {/*   <span className="loading loading-bars loading-lg"></span> */}
-          {/*   : */}
-          {/*   <> */}
-          {/*   {render.map((data, index) => ( */}
-          {/*     <Request key={index} info={data} requestType={requestType} admin={ADMIN}/> */}
-          {/*   ))}</> */}
-          {/* } */}
         </div>
 
       </div>
