@@ -56,7 +56,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigge
       }
     }
     else if(admin == "college"){
-      endpoint = endpoint + `/college/pass/` 
+      endpoint = endpoint + `/college/pass` 
       switch (status) {
         case '?':
           endpoint = endpoint + "/applied"
