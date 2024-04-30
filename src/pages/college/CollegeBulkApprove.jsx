@@ -22,7 +22,7 @@ const CollegeBulkApprove = () => {
   const handleSubmit = () => {
     console.log(jsonData)
     setLoading(true)
-    axios.post('https://amr.sytes.net/college/requests/bulk', jsonData, {
+    axios.post('https://amr.sytes.net/api/college/requests/bulk', jsonData, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

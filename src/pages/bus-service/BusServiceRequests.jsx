@@ -26,7 +26,7 @@ const BusServiceRequests = () => {
     // }
 
     setLoading(true)
-    let endpoint = "https://amr.sytes.net/api/service/pass/get"
+    let endpoint = "https://amr.sytes.net/api/bus-service/pass/get"
     switch (requestType[3]) {
       case '?':
         endpoint = endpoint + "/applied"
