@@ -21,9 +21,9 @@ const BusServiceRequests = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    // if(Cookies.get('token')===undefined){
-    //   navigate('/notfound')
-    // }
+    if(Cookies.get('token')===undefined){
+      navigate('/notfound')
+    }
 
     setLoading(true)
     let endpoint = "https://amr.sytes.net/api/bus-service/pass/get"

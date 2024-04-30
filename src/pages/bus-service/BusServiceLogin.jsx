@@ -1,11 +1,11 @@
 import React ,{ useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import Cookies from 'js-cookie'
 
 const BusServiceLogin = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   
   const [loading, setLoading] = useState(false)
   const [credentials, setCredentials] = useState({
@@ -38,6 +38,12 @@ const BusServiceLogin = () => {
       setLoading(false)
     });
   }
+
+  useEffect(() => {
+    if(Cookies.get('token')!==undefined){
+      navigate('/bus-service')
+    }
+  }, [])
 
   return (
     <>

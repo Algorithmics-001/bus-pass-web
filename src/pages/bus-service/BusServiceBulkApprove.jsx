@@ -38,9 +38,9 @@ const BusServiceBulkApprove = () => {
   }
 
   useEffect(() => {
-    // if(Cookies.get('token')===undefined){
-    //   navigate('/notfound')
-    // }
+    if(Cookies.get('token')===undefined){
+      navigate('/notfound')
+    }
   }, [])
 
   return (

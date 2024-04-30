@@ -40,6 +40,12 @@ const CollegeLogin = () => {
     });
   } // this api call must return a JWT token if creds are correct the token must be sent as res.cookies.send this will be automatically saved (ape chakk luga) in browwer and will send the JWT in subsiquent requests automatically.
 
+  useEffect(() => {
+    if(Cookies.get('token')!==undefined){
+      navigate('/college')
+    }
+  }, [])
+
   return (
     <>
       <h1 className="text-3xl text-center my-20 font-semibold p-3">College Login</h1>
