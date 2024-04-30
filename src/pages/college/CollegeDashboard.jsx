@@ -27,7 +27,7 @@ const CollegeDashboard = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if(Cookies.get('token')!=undefined){
+    if(Cookies.get('token')===undefined){
       navigate('/notfound')
     }
     setLoading(true)
