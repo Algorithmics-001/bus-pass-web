@@ -52,7 +52,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigge
         endpoint = endpoint + "/applied"
         break;
       case 'a':
-        endpoint = endpoint + ((requestType[0]=='a')?"/accepted":"/forwarded")
+        endpoint = endpoint + ((admin=="bus-service")?"/accepted":"/forwarded")
         break;
       case 'r':
         endpoint = endpoint + "/rejected"
