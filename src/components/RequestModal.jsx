@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigger }) => {
+const RequestModal = ({ student_id_real,student_id, user_id, info, requestType, admin, setTrigger }) => {
 
   const hideModal = (modalId) => {
     const modal = document.getElementById(modalId);
@@ -68,7 +68,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigge
           endpoint = endpoint + "/rejected"
           break;
       }
-      endpoint = endpoint + `?userid=${student_id}`
+      endpoint = endpoint + `?userid=${student_id_real}`
     }
 
     console.log(endpoint)
