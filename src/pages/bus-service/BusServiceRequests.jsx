@@ -29,13 +29,13 @@ const BusServiceRequests = () => {
     let endpoint = "https://amr.sytes.net/api/bus-service/pass/get"
     switch (requestType[3]) {
       case '?':
-        endpoint = endpoint + "/applied"
+        endpoint = endpoint + "/forwarded"
         break;
       case 'a':
         endpoint = endpoint + "/accepted"
         break;
       case 'r':
-        endpoint = endpoint + "/rejected"
+        endpoint = endpoint + "/rejected_b"
         break;
     }
     if(requestType[2]=='r'){endpoint = endpoint + "?type=true"}
