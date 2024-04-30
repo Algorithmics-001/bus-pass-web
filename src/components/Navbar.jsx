@@ -13,13 +13,13 @@ const Navbar = ({admin}) => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               {(admin == "college") ? 
               <>
-                <li><Link to="/college/bulk">Bulk</Link></li>
+                {/* <li><Link to="/college/bulk">Bulk</Link></li> */}
                 <li><Link to="/college/requests">Requests</Link></li>
                 <li><Link to="/about">About</Link></li> 
               </>
               :
               <>
-                <li><Link to="/bus-service/bulk">Bulk</Link></li>
+                {/* <li><Link to="/bus-service/bulk">Bulk</Link></li> */}
                 <li><Link to="/bus-service/requests">Requests</Link></li>
                 <li><Link to="/about">About</Link></li> 
               </>}
