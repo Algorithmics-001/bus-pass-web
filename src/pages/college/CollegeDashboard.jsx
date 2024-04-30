@@ -27,9 +27,9 @@ const CollegeDashboard = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    // if(Cookies.get('token')===undefined){
-    //   navigate('/notfound')
-    // }
+    if(Cookies.get('token')===undefined){
+      navigate('/notfound')
+    }
     setLoading(true)
     axios.get('https://amr.sytes.net/api/college/dashboard', {
       headers: {
