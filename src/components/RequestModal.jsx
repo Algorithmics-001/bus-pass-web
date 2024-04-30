@@ -2,6 +2,13 @@ import axios from 'axios';
 
 const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigger }) => {
 
+  const hideModal = (modalId) => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.remove('open'); 
+    }
+  };
+
   const handleAccount = (status) => {
     let endpoint = `https://amr.sytes.net/api/college/account/${user_id}`
     switch (status) {
@@ -24,6 +31,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigge
     })
     .then(response => {
       console.log('Response:', response.data);
+      hideModal(student_id)
       setTrigger(prevState => !prevState)
     })
     .catch(error => {
@@ -59,6 +67,7 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigge
     })
     .then(response => {
       console.log('Response:', response.data);
+      hideModal(student_id)
       setTrigger(prevState => !prevState)
     })
     .catch(error => {
@@ -73,17 +82,17 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigge
           <h3 className="font-bold text-lg">{info}</h3>
             {(requestType[0] === 'a') && (
               <>
-                {(requestType[1] !== '?') && <button className="btn btn-outline btn-primary" onClick={() => handleAccount('?')}>Restore</button>}
-                {(requestType[1] !== 'a') && <button className="btn btn-outline btn-primary" onClick={() => handleAccount('a')}>Accept</button>}
-                {(requestType[1] !== 'r') && <button className="btn btn-outline btn-primary" onClick={() => handleAccount('r')}>Reject</button>}
+                {(requestType[1] !== '?') && <button className="btn btn-outline btn-primary m-2" onClick={() => handleAccount('?')}>Restore</button>}
+                {(requestType[1] !== 'a') && <button className="btn btn-outline btn-primary m-2" onClick={() => handleAccount('a')}>Accept</button>}
+                {(requestType[1] !== 'r') && <button className="btn btn-outline btn-primary m-2" onClick={() => handleAccount('r')}>Reject</button>}
               </>
             )}
 
             {(requestType[0] === 'b') && (
               <>
-                {(requestType[4] !== '?') && <button className="btn btn-outline btn-primary" onClick={() => handlePass('?')}>Restore</button>}
-                {(requestType[4] !== 'a') && <button className="btn btn-outline btn-primary" onClick={() => handlePass('a')}>Accept</button>}
-                {(requestType[4] !== 'r') && <button className="btn btn-outline btn-primary" onClick={() => handlePass('r')}>Reject</button>}
+                {(requestType[4] !== '?') && <button className="btn btn-outline btn-primary m-2" onClick={() => handlePass('?')}>Restore</button>}
+                {(requestType[4] !== 'a') && <button className="btn btn-outline btn-primary m-2" onClick={() => handlePass('a')}>Accept</button>}
+                {(requestType[4] !== 'r') && <button className="btn btn-outline btn-primary m-2" onClick={() => handlePass('r')}>Reject</button>}
               </>
             )}
           <div className="modal-action">
