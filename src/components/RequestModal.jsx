@@ -41,23 +41,36 @@ const RequestModal = ({ student_id, user_id, info, requestType, admin, setTrigge
 
   const handlePass = (status) => {
     let endpoint = "https://amr.sytes.net/api"
-    if(admin == "college"){
-      endpoint = endpoint + `/college/pass/${user_id}` 
-    }
-    else if(admin == "bus-service"){
+    if(admin == "bus-service"){
       endpoint = endpoint + `/bus-service/pass/${user_id}` 
+      switch (status) {
+        case '?':
+          endpoint = endpoint + "/forwarded"
+          break;
+        case 'a':
+          endpoint = endpoint + "/accepted"
+          break;
+        case 'r':
+          endpoint = endpoint + "/rejected_b"
+          break;
+      }
     }
-    switch (status) {
-      case '?':
-        endpoint = endpoint + ((admin=="bus-service")?"/forwarded":"/applied")
-        break;
-      case 'a':
-        endpoint = endpoint + ((admin=="bus-service")?"/accepted":"/forwarded")
-        break;
-      case 'r':
-        endpoint = endpoint + ((admin=="bus-service")?"/rejected_b":"/rejected")
-        break;
+    else if(admin == "college"){
+      endpoint = endpoint + `/college/pass/` 
+      switch (status) {
+        case '?':
+          endpoint = endpoint + "/applied"
+          break;
+        case 'a':
+          endpoint = endpoint + "/forwarded"
+          break;
+        case 'r':
+          endpoint = endpoint + "/rejected"
+          break;
+      }
+      endpoint = endpoint + `?userid=${student_id}`
     }
+
     console.log(endpoint)
     axios.post(endpoint, {
       headers: {
